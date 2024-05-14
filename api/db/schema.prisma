@@ -5,7 +5,7 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -13,6 +13,39 @@ generator client {
   provider      = "prisma-client-js"
   binaryTargets = "native"
 }
+
+model User {
+  id       String @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  tabs     Tab[]
+  tags     Tag[]
+}
+
+model Tab {
+  id String @id @default(cuid())
+  userId String @map(name: "user_id")
+  user User @relation(fields: [userId], references: [id])
+  tags Tag[]
+}
+
+model Tag {
+  id String @id @default(cuid())
+  name String
+  userId String @map(name: "user_id")
+  user User @relation(fields: [userId], references: [id])
+  tabs Tab[]
+}
+
+// model TabTag {
+//   tabId String
+//   tagId String
+//   tab Tab @relation(fields: [tabId], references: [id])
+//   tag Tag @relation(fields: [tagId], references: [id])
+//
+//   @@id([tabId, tagId])
+// }
 
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
