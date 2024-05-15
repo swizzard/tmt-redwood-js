@@ -16,9 +16,8 @@ generator client {
 
 model User {
   id       String @id @default(cuid())
-  email     String   @unique
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  externalAuthProvider String @map(name: "external_auth_provider") @default("auth0")
+  externalAuthId String @map(name: "external_auth_id")
   tabs     Tab[]
   tags     Tag[]
 }
@@ -38,20 +37,3 @@ model Tag {
   tabs Tab[]
 }
 
-// model TabTag {
-//   tabId String
-//   tagId String
-//   tab Tab @relation(fields: [tabId], references: [id])
-//   tag Tag @relation(fields: [tagId], references: [id])
-//
-//   @@id([tabId, tagId])
-// }
-
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-}
