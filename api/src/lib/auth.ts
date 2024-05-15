@@ -3,7 +3,7 @@ import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
 import {
   getUserByExternalAuthId,
   createUserWithExternalAuthId,
-} from 'src/services/user'
+} from 'src/services/users/users'
 
 /**
  * Represents the user attributes returned by the decoding the
@@ -39,7 +39,6 @@ export const getCurrentUser = async (
   if (!decoded) {
     return null
   }
-
   const extId = decoded[process.env.JWT_USER_ID_FIELD] as string | undefined
 
   if (!extId) {

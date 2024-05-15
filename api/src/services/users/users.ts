@@ -43,3 +43,16 @@ export const User: UserRelationResolvers = {
     return db.user.findUnique({ where: { id: root?.id } }).tags()
   },
 }
+export async function getUserByExternalAuthId(externalAuthId: string) {
+  return await db.user.findFirst({
+    where: { externalAuthId },
+  })
+}
+
+export async function createUserWithExternalAuthId(externalAuthId: string) {
+  return await db.user.create({
+    data: {
+      externalAuthId,
+    },
+  })
+}
