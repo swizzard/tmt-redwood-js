@@ -1,6 +1,8 @@
 export const schema = gql`
   type Tab {
     id: String!
+    url: String!
+    notes: String
     userId: String!
     user: User!
     tags: [Tag]!
@@ -12,10 +14,14 @@ export const schema = gql`
   }
 
   input CreateTabInput {
+    url: String!
+    notes: String
     userId: String!
   }
 
   input UpdateTabInput {
+    url: String
+    notes: String
     userId: String
   }
 

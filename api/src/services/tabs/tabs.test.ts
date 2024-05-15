@@ -24,9 +24,10 @@ describe('tabs', () => {
 
   scenario('creates a tab', async (scenario: StandardScenario) => {
     const result = await createTab({
-      input: { userId: scenario.tab.two.userId },
+      input: { url: 'String', userId: scenario.tab.two.userId },
     })
 
+    expect(result.url).toEqual('String')
     expect(result.userId).toEqual(scenario.tab.two.userId)
   })
 
@@ -34,10 +35,10 @@ describe('tabs', () => {
     const original = (await tab({ id: scenario.tab.one.id })) as Tab
     const result = await updateTab({
       id: original.id,
-      input: { userId: scenario.tab.two.userId },
+      input: { url: 'String2' },
     })
 
-    expect(result.userId).toEqual(scenario.tab.two.userId)
+    expect(result.url).toEqual('String2')
   })
 
   scenario('deletes a tab', async (scenario: StandardScenario) => {

@@ -58,6 +58,14 @@ const Tab = ({ tab }: Props) => {
               <td>{tab.id}</td>
             </tr>
             <tr>
+              <th>Url</th>
+              <td>{tab.url}</td>
+            </tr>
+            <tr>
+              <th>Notes</th>
+              <td>{tab.notes}</td>
+            </tr>
+            <tr>
               <th>User id</th>
               <td>{tab.userId}</td>
             </tr>

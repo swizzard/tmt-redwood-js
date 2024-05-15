@@ -16,6 +16,12 @@ import { useAuth } from './auth'
 const Routes = () => {
   return (
     <Router useAuth={useAuth}>
+      <Set wrap={ScaffoldLayout} title="Tabs" titleTo="tabs" buttonLabel="New Tab" buttonTo="newTab">
+        <Route path="/tabs/new" page={TabNewTabPage} name="newTab" />
+        <Route path="/tabs/{id}/edit" page={TabEditTabPage} name="editTab" />
+        <Route path="/tabs/{id}" page={TabTabPage} name="tab" />
+        <Route path="/tabs" page={TabTabsPage} name="tabs" />
+      </Set>
       <Set wrap={ScaffoldLayout} title="Tags" titleTo="tags" buttonLabel="New Tag" buttonTo="newTag">
         <Route path="/tags/new" page={TagNewTagPage} name="newTag" />
         <Route path="/tags/{id}/edit" page={TagEditTagPage} name="editTag" />
@@ -29,10 +35,6 @@ const Routes = () => {
         <Route path="/users" page={UserUsersPage} name="users" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Tabs" titleTo="tabs" buttonLabel="New Tab" buttonTo="newTab">
-        <Route path="/tabs/new" page={TabNewTabPage} name="newTab" />
-        <Route path="/tabs/{id}/edit" page={TabEditTabPage} name="editTab" />
-        <Route path="/tabs/{id}" page={TabTabPage} name="tab" />
-        <Route path="/tabs" page={TabTabsPage} name="tabs" />
       </Set>
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />

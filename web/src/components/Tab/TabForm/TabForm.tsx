@@ -35,6 +35,41 @@ const TabForm = (props: TabFormProps) => {
         />
 
         <Label
+          name="url"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Url
+        </Label>
+
+        <TextField
+          name="url"
+          defaultValue={props.tab?.url}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="url" className="rw-field-error" />
+
+        <Label
+          name="notes"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Notes
+        </Label>
+
+        <TextField
+          name="notes"
+          defaultValue={props.tab?.notes}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="notes" className="rw-field-error" />
+
+        <Label
           name="userId"
           className="rw-label"
           errorClassName="rw-label rw-label-error"

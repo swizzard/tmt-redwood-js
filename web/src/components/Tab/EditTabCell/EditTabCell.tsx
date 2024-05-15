@@ -19,6 +19,8 @@ export const QUERY: TypedDocumentNode<EditTabById> = gql`
   query EditTabById($id: String!) {
     tab: tab(id: $id) {
       id
+      url
+      notes
       userId
     }
   }
@@ -31,6 +33,8 @@ const UPDATE_TAB_MUTATION: TypedDocumentNode<
   mutation UpdateTabMutation($id: String!, $input: UpdateTabInput!) {
     updateTab(id: $id, input: $input) {
       id
+      url
+      notes
       userId
     }
   }

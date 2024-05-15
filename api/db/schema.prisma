@@ -24,6 +24,8 @@ model User {
 
 model Tab {
   id String @id @default(cuid())
+  url String
+  notes String?
   userId String @map(name: "user_id")
   user User @relation(fields: [userId], references: [id])
   tags Tag[]

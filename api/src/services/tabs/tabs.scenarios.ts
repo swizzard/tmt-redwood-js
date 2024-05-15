@@ -3,8 +3,12 @@ import type { ScenarioData } from '@redwoodjs/testing/api'
 
 export const standard = defineScenario<Prisma.TabCreateArgs>({
   tab: {
-    one: { data: { user: { create: { externalAuthId: 'String' } } } },
-    two: { data: { user: { create: { externalAuthId: 'String' } } } },
+    one: {
+      data: { url: 'String', user: { create: { externalAuthId: 'String' } } },
+    },
+    two: {
+      data: { url: 'String', user: { create: { externalAuthId: 'String' } } },
+    },
   },
 })
 

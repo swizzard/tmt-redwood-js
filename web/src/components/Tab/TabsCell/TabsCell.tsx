@@ -13,6 +13,8 @@ export const QUERY: TypedDocumentNode<FindTabs, FindTabsVariables> = gql`
   query FindTabs {
     tabs {
       id
+      url
+      notes
       userId
     }
   }

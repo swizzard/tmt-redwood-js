@@ -50,6 +50,8 @@ const TabsList = ({ tabs }: FindTabs) => {
         <thead>
           <tr>
             <th>Id</th>
+            <th>Url</th>
+            <th>Notes</th>
             <th>User id</th>
             <th>&nbsp;</th>
           </tr>
@@ -58,6 +60,8 @@ const TabsList = ({ tabs }: FindTabs) => {
           {tabs.map((tab) => (
             <tr key={tab.id}>
               <td>{truncate(tab.id)}</td>
+              <td>{truncate(tab.url)}</td>
+              <td>{truncate(tab.notes)}</td>
               <td>{truncate(tab.userId)}</td>
               <td>
                 <nav className="rw-table-actions">
