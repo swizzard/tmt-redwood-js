@@ -20531,6 +20531,7 @@ __metadata:
     "@redwoodjs/web": 7.5.0
     "@types/react": ^18.2.55
     "@types/react-dom": ^18.2.19
+    humanize-string: 2.1.0
     react: 18.2.0
     react-dom: 18.2.0
   languageName: unknown
