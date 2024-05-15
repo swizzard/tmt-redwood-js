@@ -3,23 +3,36 @@ import { Metadata } from '@redwoodjs/web'
 import { useAuth } from 'src/auth'
 
 const HomePage = () => {
-  const { currentUser, signUp } = useAuth()
+  const { currentUser } = useAuth()
   return (
     <>
       <Metadata title="Home" description="Home page" />
 
-      <h1>HomePage</h1>
-      <p>
-        Find me in <code>./web/src/pages/HomePage/HomePage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>home</code>, link to me with `
-        <Link to={routes.home()}>Home</Link>`
-      </p>
-      <p>{currentUser ? JSON.stringify(currentUser) : 'No user'}</p>
-      <button onClick={() => signUp()}>Sign Up</button>
+      <h1>Too Many Tabs</h1>
+      {currentUser ? <LoggedInHome /> : <LoggedOutHome />}
     </>
   )
 }
 
 export default HomePage
+
+function LoggedInHome() {
+  const { currentUser, logOut } = useAuth()
+  return (
+    <>
+      <p>Welcome back</p>
+      <p>{JSON.stringify(currentUser)}</p>
+      <button onClick={() => logOut()}>Log Out</button>
+    </>
+  )
+}
+
+function LoggedOutHome() {
+  const { signUp } = useAuth()
+  return (
+    <>
+      <p>You are not logged in</p>
+      <button onClick={() => signUp()}>Sign Up</button>
+    </>
+  )
+}

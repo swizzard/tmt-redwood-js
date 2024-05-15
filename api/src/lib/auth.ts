@@ -1,5 +1,9 @@
 import type { Decoded } from '@redwoodjs/api'
 import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
+import {
+  getUserByExternalAuthId,
+  createUserWithExternalAuthId,
+} from 'src/services/user'
 
 /**
  * Represents the user attributes returned by the decoding the
@@ -36,13 +40,18 @@ export const getCurrentUser = async (
     return null
   }
 
-  const roles = decoded[process.env.AUTH0_AUDIENCE + '/roles']
+  const extId = decoded[process.env.JWT_USER_ID_FIELD] as string | undefined
 
-  if (roles) {
-    return { ...decoded, roles }
+  if (!extId) {
+    return null
   }
 
-  return { ...decoded }
+  let user = await getUserByExternalAuthId(extId)
+  if (!user) {
+    user = await createUserWithExternalAuthId(extId)
+  }
+
+  return { ...user, roles: [] }
 }
 
 /**

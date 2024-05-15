@@ -3,9 +3,9 @@
 - [x] db
   - [x] docker-compose
   - [x] prisma schema
-- [ ] auth
-  - [ ] research options
-  - [ ] pick one
+- [x] auth
+  - [x] research options
+  - [x] pick one
 - [ ] tabs (`yarn rw g scaffold tabs`)
   - [ ] create
   - [ ] edit
