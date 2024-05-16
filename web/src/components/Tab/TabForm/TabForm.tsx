@@ -20,8 +20,12 @@ interface TabFormProps {
 }
 
 const TabForm = (props: TabFormProps) => {
-  const onSubmit = (data: FormTab) => {
-    props.onSave(data, props?.tab?.id)
+  const onSubmit = ({ tags, ...data }: FormTab) => {
+    const tagNames = (tags ?? []).map((tag) => tag.tag.name)
+    props.onSave(
+      { ...data, userId: context.currentUser.id as string, tags: tagNames },
+      props?.tab?.id
+    )
   }
 
   return (
@@ -68,24 +72,6 @@ const TabForm = (props: TabFormProps) => {
         />
 
         <FieldError name="notes" className="rw-field-error" />
-
-        <Label
-          name="userId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          User id
-        </Label>
-
-        <TextField
-          name="userId"
-          defaultValue={props.tab?.userId}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="userId" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

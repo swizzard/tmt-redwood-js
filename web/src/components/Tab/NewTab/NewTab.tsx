@@ -18,6 +18,14 @@ const CREATE_TAB_MUTATION: TypedDocumentNode<
   mutation CreateTabMutation($input: CreateTabInput!) {
     createTab(input: $input) {
       id
+      url
+      notes
+      tags {
+        tag {
+          id
+          name
+        }
+      }
     }
   }
 `

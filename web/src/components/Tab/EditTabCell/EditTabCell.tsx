@@ -21,7 +21,12 @@ export const QUERY: TypedDocumentNode<EditTabById> = gql`
       id
       url
       notes
-      userId
+      tags {
+        tag {
+          id
+          name
+        }
+      }
     }
   }
 `
@@ -35,7 +40,12 @@ const UPDATE_TAB_MUTATION: TypedDocumentNode<
       id
       url
       notes
-      userId
+      tags {
+        tag {
+          id
+          name
+        }
+      }
     }
   }
 `
