@@ -37,5 +37,7 @@ model Tag {
   userId String @map(name: "user_id")
   user User @relation(fields: [userId], references: [id])
   tabs Tab[]
+
+  @@unique([name, userId])
 }
 
