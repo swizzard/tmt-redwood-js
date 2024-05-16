@@ -20,23 +20,23 @@ export const createTab: MutationResolvers['createTab'] = async ({ input }) => {
   const userId = input.userId
   const { tags, ...tabData } = input
   return db.$transaction(async (tx) => {
-    const tab = await tx.tab.create({
+    const { id: tabId } = await tx.tab.create({
       data: tabData,
     })
-    const existingTags: Record<string, string> = await tx.tag
+    const existingTags: Set<string> = await tx.tag
       .findMany({
         where: { userId, name: { in: tags } },
         select: { id: true, name: true },
       })
       .then((tags) =>
-        tags.reduce((acc, { id, name }) => ({ ...acc, [name]: id }), {})
+        tags.reduce((acc, { name }) => {
+          acc.add(name)
+          return acc
+        }, new Set<string>())
       )
-    const existing = []
     const toCreate = []
     tags.forEach((tag) => {
-      if (existingTags[tag]) {
-        existing.push({ id: existingTags[tag] })
-      } else {
+      if (!existingTags.has(tag)) {
         toCreate.push({ userId, name: tag })
       }
     })
@@ -48,22 +48,69 @@ export const createTab: MutationResolvers['createTab'] = async ({ input }) => {
         where: { userId, name: { in: tags } },
         select: { id: true },
       })
-      .then((ids) => ids.map(({ id }) => ({ tagId: id, tabId: tab.id })))
+      .then((ids) => ids.map(({ id }) => ({ tagId: id, tabId })))
     await tx.tabTag.createMany({ data: ttsToCreate })
-    return tx.tab.findUnique({ where: { id: tab.id } })
+    return tx.tab.findUnique({
+      where: { id: tabId },
+      include: {
+        tags: {
+          include: { tag: true },
+        },
+      },
+    })
   })
 }
 
-export const updateTab: MutationResolvers['updateTab'] = ({ id, input }) => {
-  return db.tab.update({
-    data: input,
-    where: { id },
+export const updateTab: MutationResolvers['updateTab'] = async ({
+  id: tabId,
+  input,
+}) => {
+  const userId = input.userId
+  const { tags, ...tabData } = input
+  return db.$transaction(async (tx) => {
+    await tx.tab.update({ where: { id: tabId }, data: tabData })
+
+    const existingTags: Set<string> = await tx.tag
+      .findMany({
+        where: { userId, name: { in: tags } },
+        select: { id: true, name: true },
+      })
+      .then((tags) =>
+        tags.reduce((acc, { name }) => {
+          acc.add(name)
+          return acc
+        }, new Set<string>())
+      )
+    const toCreate = []
+    tags.forEach((tag) => {
+      if (!existingTags.has(tag)) {
+        toCreate.push({ userId, name: tag })
+      }
+    })
+    await tx.tag.createMany({
+      data: toCreate,
+    })
+    await tx.tabTag.deleteMany({
+      where: { tabId },
+    })
+    const ttToCreate = await tx.tag
+      .findMany({
+        where: { userId, name: { in: tags } },
+        select: { id: true },
+      })
+      .then((tags) => tags.map(({ id: tagId }) => ({ tagId, tabId })))
+    await tx.tabTag.createMany({ data: ttToCreate })
+    return tx.tab.findUnique({
+      where: { id: tabId },
+      include: { tags: { include: { tag: true } } },
+    })
   })
 }
 
 export const deleteTab: MutationResolvers['deleteTab'] = ({ id }) => {
-  return db.tab.delete({
-    where: { id },
+  return db.$transaction(async (tx) => {
+    await tx.tabTag.deleteMany({ where: { tabId: id } })
+    return tx.tab.delete({ where: { id } })
   })
 }
 
