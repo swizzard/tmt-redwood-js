@@ -5,7 +5,7 @@ export const schema = gql`
     notes: String
     userId: String!
     user: User!
-    tags: [Tag]!
+    tags: [TabTag]!
   }
 
   type Query {
@@ -17,12 +17,14 @@ export const schema = gql`
     url: String!
     notes: String
     userId: String!
+    tags: [String]!
   }
 
   input UpdateTabInput {
     url: String
     notes: String
     userId: String
+    tags: [String]!
   }
 
   type Mutation {

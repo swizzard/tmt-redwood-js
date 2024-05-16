@@ -16,9 +16,41 @@ export const tab: QueryResolvers['tab'] = ({ id }) => {
   })
 }
 
-export const createTab: MutationResolvers['createTab'] = ({ input }) => {
-  return db.tab.create({
-    data: input,
+export const createTab: MutationResolvers['createTab'] = async ({ input }) => {
+  const userId = input.userId
+  const { tags, ...tabData } = input
+  return db.$transaction(async (tx) => {
+    const tab = await tx.tab.create({
+      data: tabData,
+    })
+    const existingTags: Record<string, string> = await tx.tag
+      .findMany({
+        where: { userId, name: { in: tags } },
+        select: { id: true, name: true },
+      })
+      .then((tags) =>
+        tags.reduce((acc, { id, name }) => ({ ...acc, [name]: id }), {})
+      )
+    const existing = []
+    const toCreate = []
+    tags.forEach((tag) => {
+      if (existingTags[tag]) {
+        existing.push({ id: existingTags[tag] })
+      } else {
+        toCreate.push({ userId, name: tag })
+      }
+    })
+    await tx.tag.createMany({
+      data: toCreate,
+    })
+    const ttsToCreate = await tx.tag
+      .findMany({
+        where: { userId, name: { in: tags } },
+        select: { id: true },
+      })
+      .then((ids) => ids.map(({ id }) => ({ tagId: id, tabId: tab.id })))
+    await tx.tabTag.createMany({ data: ttsToCreate })
+    return tx.tab.findUnique({ where: { id: tab.id } })
   })
 }
 

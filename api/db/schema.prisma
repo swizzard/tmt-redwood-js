@@ -28,7 +28,7 @@ model Tab {
   notes String?
   userId String @map(name: "user_id")
   user User @relation(fields: [userId], references: [id])
-  tags Tag[]
+  tags TabTag[]
 }
 
 model Tag {
@@ -36,8 +36,19 @@ model Tag {
   name String
   userId String @map(name: "user_id")
   user User @relation(fields: [userId], references: [id])
-  tabs Tab[]
+  tabs TabTag[]
 
   @@unique([name, userId])
+}
+
+model TabTag {
+  id String @id @default(cuid())
+  tabId String @map(name: "tab_id")
+  tagId String @map(name: "tag_id")
+
+  tab Tab @relation(fields: [tabId], references: [id])
+  tag Tag @relation(fields: [tagId], references: [id])
+
+  @@unique([tabId, tagId])
 }
 

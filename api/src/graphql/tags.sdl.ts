@@ -4,7 +4,7 @@ export const schema = gql`
     name: String!
     userId: String!
     user: User!
-    tabs: [Tab]!
+    tabs: [TabTag]!
   }
 
   type Query {
