@@ -9,7 +9,8 @@ import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import {} from 'src/lib/formatters'
+import { fmtTags } from 'src/lib/formatters'
+import HomeLink from 'src/components/util/HomeLink'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -69,6 +70,10 @@ const Tab = ({ tab }: Props) => {
               <th>User id</th>
               <td>{tab.userId}</td>
             </tr>
+            <tr>
+              <th>Tags</th>
+              <td>{fmtTags(tab.tags)}</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -86,6 +91,9 @@ const Tab = ({ tab }: Props) => {
         >
           Delete
         </button>
+      </nav>
+      <nav className="rw-button-group">
+        <HomeLink />
       </nav>
     </>
   )

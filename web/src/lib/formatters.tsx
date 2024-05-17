@@ -1,6 +1,7 @@
 import React from 'react'
 
 import humanize from 'humanize-string'
+import { EditTabById } from 'types/graphql'
 
 const MAX_STRING_LENGTH = 150
 
@@ -55,4 +56,40 @@ export const timeTag = (dateTime?: string) => {
 
 export const checkboxInputTag = (checked: boolean) => {
   return <input type="checkbox" checked={checked} disabled />
+}
+
+export function fmtTags(tags: EditTabById['tab']['tags']) {
+  return tags
+    .map((tag) => {
+      const name = tag.tag.name
+      if (name.includes(',')) {
+        return `"${name}"`
+      } else {
+        return name
+      }
+    })
+    .join(', ')
+}
+
+export function splitTags(value: string) {
+  const tags: Array<string> = []
+  let inQuotes = false
+  let currentTag = ''
+  for (let i = 0; i < value.length; i++) {
+    const char = value[i]
+    if (char === '"') {
+      inQuotes = !inQuotes
+    } else if (char === ',' && !inQuotes) {
+      tags.push(currentTag.trim())
+      currentTag = ''
+    } else {
+      currentTag += char
+    }
+  }
+  const final = currentTag.trim()
+  if (final.length > 0) {
+    tags.push(final)
+  }
+  console.log('tags', tags)
+  return tags
 }

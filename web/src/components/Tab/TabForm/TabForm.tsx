@@ -8,9 +8,16 @@ import {
   Label,
   TextField,
   Submit,
+  TextAreaField,
 } from '@redwoodjs/forms'
 
-type FormTab = NonNullable<EditTabById['tab']>
+import { useAuth } from 'src/auth'
+import { fmtTags, splitTags } from 'src/lib/formatters'
+import HomeLink from 'src/components/util/HomeLink'
+
+type FormTab = Omit<NonNullable<EditTabById['tab']>, 'tags'> & {
+  tags: Array<string>
+}
 
 interface TabFormProps {
   tab?: EditTabById['tab']
@@ -20,12 +27,9 @@ interface TabFormProps {
 }
 
 const TabForm = (props: TabFormProps) => {
-  const onSubmit = ({ tags, ...data }: FormTab) => {
-    const tagNames = (tags ?? []).map((tag) => tag.tag.name)
-    props.onSave(
-      { ...data, userId: context.currentUser.id as string, tags: tagNames },
-      props?.tab?.id
-    )
+  const { currentUser } = useAuth()
+  const onSubmit = (data: FormTab) => {
+    props.onSave({ ...data, userId: currentUser.id as string }, props?.tab?.id)
   }
 
   return (
@@ -64,7 +68,7 @@ const TabForm = (props: TabFormProps) => {
           Notes
         </Label>
 
-        <TextField
+        <TextAreaField
           name="notes"
           defaultValue={props.tab?.notes}
           className="rw-input"
@@ -73,12 +77,33 @@ const TabForm = (props: TabFormProps) => {
 
         <FieldError name="notes" className="rw-field-error" />
 
+        <Label
+          name="tags"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Tags
+        </Label>
+
+        <TextField
+          name="tags"
+          defaultValue={fmtTags(props.tab?.tags)}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ setValueAs: splitTags }}
+        />
+
+        <FieldError name="tags" className="rw-field-error" />
+
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>
       </Form>
+      <div className="rw-button-group">
+        <HomeLink />
+      </div>
     </div>
   )
 }
