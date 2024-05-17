@@ -49,8 +49,7 @@ const TabsList = ({ tabs }: FindTabs) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Url</th>
+            <th>URL</th>
             <th>Notes</th>
             <th>User id</th>
             <th>&nbsp;</th>
@@ -59,15 +58,17 @@ const TabsList = ({ tabs }: FindTabs) => {
         <tbody>
           {tabs.map((tab) => (
             <tr key={tab.id}>
-              <td>{truncate(tab.id)}</td>
-              <td>{truncate(tab.url)}</td>
+              <td>
+                <Link to={routes.tab({ id: tab.id })} title={'Show tab detail'}>
+                  {tab.url}
+                </Link>
+              </td>
               <td>{truncate(tab.notes)}</td>
-              <td>{truncate(tab.userId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
                     to={routes.tab({ id: tab.id })}
-                    title={'Show tab ' + tab.id + ' detail'}
+                    title={'Show tab detail'}
                     className="rw-button rw-button-small"
                   >
                     Show

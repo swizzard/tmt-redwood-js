@@ -1,6 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { useAuth } from 'src/auth'
+import HomeLink from 'src/components/util/HomeLink'
 
 const HomePage = () => {
   const { currentUser } = useAuth()
@@ -22,7 +23,10 @@ function LoggedInHome() {
     <>
       <p>Welcome back</p>
       <p>{JSON.stringify(currentUser)}</p>
-      <button onClick={() => logOut()}>Log Out</button>
+      <div className="w-1/4">
+        <HomeLink />
+        <button onClick={() => logOut()}>Log Out</button>
+      </div>
     </>
   )
 }

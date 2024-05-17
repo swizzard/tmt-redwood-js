@@ -10,7 +10,6 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { fmtTags } from 'src/lib/formatters'
-import HomeLink from 'src/components/util/HomeLink'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -48,27 +47,21 @@ const Tab = ({ tab }: Props) => {
     <>
       <div className="rw-segment">
         <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Tab {tab.id} Detail
-          </h2>
+          <h2 className="rw-heading rw-heading-secondary">Tab Details</h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
-              <th>Id</th>
-              <td>{tab.id}</td>
-            </tr>
-            <tr>
-              <th>Url</th>
-              <td>{tab.url}</td>
+              <th>URL</th>
+              <td>
+                <Link to={tab.url} target="_blank" title="Visit URL">
+                  {tab.url}
+                </Link>
+              </td>
             </tr>
             <tr>
               <th>Notes</th>
               <td>{tab.notes}</td>
-            </tr>
-            <tr>
-              <th>User id</th>
-              <td>{tab.userId}</td>
             </tr>
             <tr>
               <th>Tags</th>
@@ -91,9 +84,6 @@ const Tab = ({ tab }: Props) => {
         >
           Delete
         </button>
-      </nav>
-      <nav className="rw-button-group">
-        <HomeLink />
       </nav>
     </>
   )

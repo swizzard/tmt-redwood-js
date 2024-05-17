@@ -13,7 +13,6 @@ import {
 
 import { useAuth } from 'src/auth'
 import { fmtTags, splitTags } from 'src/lib/formatters'
-import HomeLink from 'src/components/util/HomeLink'
 
 type FormTab = Omit<NonNullable<EditTabById['tab']>, 'tags'> & {
   tags: Array<string>
@@ -101,9 +100,6 @@ const TabForm = (props: TabFormProps) => {
           </Submit>
         </div>
       </Form>
-      <div className="rw-button-group">
-        <HomeLink />
-      </div>
     </div>
   )
 }
