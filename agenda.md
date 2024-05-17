@@ -6,12 +6,12 @@
 - [x] auth
   - [x] research options
   - [x] pick one
-- [ ] tabs (`yarn rw g scaffold tabs`)
-  - [ ] create
-  - [ ] edit
-    - [ ] separate read-only "detail view"?
-  - [ ] delete
-  - [ ] list user tabs
+- [x] tabs (`yarn rw g scaffold tabs`)
+  - [x] create
+  - [x] edit
+    - [x] separate read-only "detail view"?
+  - [x] delete
+  - [x] list user tabs
 - [ ] tags (`yarn rw g scaffold tags`)
   - [ ] create
   - [ ] edit
