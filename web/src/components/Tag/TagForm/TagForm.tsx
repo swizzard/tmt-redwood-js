@@ -9,6 +9,7 @@ import {
   TextField,
   Submit,
 } from '@redwoodjs/forms'
+import { useAuth } from 'src/auth'
 
 type FormTag = NonNullable<EditTagById['tag']>
 
@@ -20,8 +21,9 @@ interface TagFormProps {
 }
 
 const TagForm = (props: TagFormProps) => {
+  const { currentUser } = useAuth()
   const onSubmit = (data: FormTag) => {
-    props.onSave(data, props?.tag?.id)
+    props.onSave({ ...data, userId: currentUser.id as string }, props?.tag?.id)
   }
 
   return (
@@ -51,24 +53,6 @@ const TagForm = (props: TagFormProps) => {
         />
 
         <FieldError name="name" className="rw-field-error" />
-
-        <Label
-          name="userId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          User id
-        </Label>
-
-        <TextField
-          name="userId"
-          defaultValue={props.tag?.userId}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="userId" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

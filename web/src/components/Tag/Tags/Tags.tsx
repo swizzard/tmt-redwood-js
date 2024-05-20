@@ -43,43 +43,47 @@ const TagsList = ({ tags }: FindTags) => {
       deleteTag({ variables: { id } })
     }
   }
+  const ft = (t: string) => truncate(t, 20)
 
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Name</th>
-            <th>User id</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {tags.map((tag) => (
             <tr key={tag.id}>
-              <td>{truncate(tag.id)}</td>
               <td>{truncate(tag.name)}</td>
-              <td>{truncate(tag.userId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
+                    to={routes.taggedTabs({ tagId: tag.id })}
+                    title={`Show tabs tagged with ${ft(tag.name)}`}
+                    className="rw-button rw-button-small text-lime-500 hover:text-lime-700"
+                  >
+                    Tabs
+                  </Link>
+                  <Link
                     to={routes.tag({ id: tag.id })}
-                    title={'Show tag ' + tag.id + ' detail'}
+                    title={'Show tag detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
                     to={routes.editTag({ id: tag.id })}
-                    title={'Edit tag ' + tag.id}
+                    title={'Edit tag'}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    title={'Delete tag ' + tag.id}
+                    title={'Delete tag'}
                     className="rw-button rw-button-small rw-button-red"
                     onClick={() => onDeleteClick(tag.id)}
                   >
@@ -91,6 +95,13 @@ const TagsList = ({ tags }: FindTags) => {
           ))}
         </tbody>
       </table>
+      <div className="rw-button-group">
+        <Link to={routes.newTag()}>
+          <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+            New Tag
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }

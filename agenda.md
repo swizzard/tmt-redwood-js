@@ -13,13 +13,13 @@
   - [x] delete
   - [x] list user tabs
 - [ ] tags (`yarn rw g scaffold tags`)
-  - [ ] create
-  - [ ] edit
-  - [ ] delete
-  - [ ] list user tags
-  - [ ] autocomplete suggestions
-  - [ ] tagged tabs
-    - [ ] gql endpoint
+  - [x] create
+  - [x] edit
+  - [x] delete
+  - [x] list user tags
+  - [x] autocomplete suggestions
+  - [x] tagged tabs
+    - [x] gql endpoint
 - [ ] users
   - [ ] whatever confirmation ui required by auth
     - [ ] sign up

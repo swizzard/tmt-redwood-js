@@ -47,23 +47,13 @@ const Tag = ({ tag }: Props) => {
     <>
       <div className="rw-segment">
         <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Tag {tag.id} Detail
-          </h2>
+          <h2 className="rw-heading rw-heading-secondary">Tag Detail</h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
-              <th>Id</th>
-              <td>{tag.id}</td>
-            </tr>
-            <tr>
               <th>Name</th>
               <td>{tag.name}</td>
-            </tr>
-            <tr>
-              <th>User id</th>
-              <td>{tag.userId}</td>
             </tr>
           </tbody>
         </table>
