@@ -16,6 +16,12 @@ export const tag: QueryResolvers['tag'] = ({ id }) => {
   })
 }
 
+export const taggedTabs: QueryResolvers['taggedTabs'] = ({ id }) => {
+  return db.tab.findMany({
+    where: { tags: { some: { tag: { id } } } },
+  })
+}
+
 export const createTag: MutationResolvers['createTag'] = ({ input }) => {
   return db.tag.create({
     data: input,

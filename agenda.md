@@ -18,6 +18,8 @@
   - [ ] delete
   - [ ] list user tags
   - [ ] autocomplete suggestions
+  - [ ] tagged tabs
+    - [ ] gql endpoint
 - [ ] users
   - [ ] whatever confirmation ui required by auth
     - [ ] sign up

@@ -51,7 +51,7 @@ const TabsList = ({ tabs }: FindTabs) => {
           <tr>
             <th>URL</th>
             <th>Notes</th>
-            <th>User id</th>
+            <th>Tags</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -64,6 +64,11 @@ const TabsList = ({ tabs }: FindTabs) => {
                 </Link>
               </td>
               <td>{truncate(tab.notes)}</td>
+              {
+                <td>
+                  <TabTagsList tags={tab.tags} />
+                </td>
+              }
               <td>
                 <nav className="rw-table-actions">
                   <Link
@@ -95,6 +100,34 @@ const TabsList = ({ tabs }: FindTabs) => {
         </tbody>
       </table>
     </div>
+  )
+}
+
+const TabTagsList = ({
+  tags,
+}: {
+  tags: Array<{ tag: { name: string; id: string } }>
+}) => {
+  return (
+    <ul>
+      {tags.map((tag) => (
+        <TTLI tag={tag.tag} />
+      ))}
+    </ul>
+  )
+}
+
+const TTLI = ({ tag: { name, id } }: { tag: { name: string; id: string } }) => {
+  const tagName = truncate(name, 20)
+  return (
+    <li key={id}>
+      <Link
+        to={routes.taggedTabs({ tagId: id })}
+        title={`Tabs tagged "${name}"`}
+      >
+        {tagName}
+      </Link>
+    </li>
   )
 }
 

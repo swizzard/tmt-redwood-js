@@ -9,7 +9,6 @@
 
 import { PrivateSet, Set, Router, Route } from '@redwoodjs/router'
 
-import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 import LoggedInLayout from 'src/layouts/LoggedInLayout/LoggedInLayout'
 
 import { useAuth } from './auth'
@@ -28,6 +27,7 @@ const Routes = () => {
           <Route path="/tags/new" page={TagNewTagPage} name="newTag" />
           <Route path="/tags/{id}/edit" page={TagEditTagPage} name="editTag" />
           <Route path="/tags/{id}" page={TagTagPage} name="tag" />
+          <Route path="/tags/{tagId}/tabs" page={TaggedTabsPage} name="taggedTabs" />
           <Route path="/tags" page={TagTagsPage} name="tags" />
         </Set>
         <Set title="Users" titleTo="users" buttonLabel="New User" buttonTo="newUser">

@@ -26,11 +26,14 @@ export const jsonDisplay = (obj: unknown) => {
   )
 }
 
-export const truncate = (value: string | number) => {
+export const truncate = (
+  value: string | number,
+  maxLen = MAX_STRING_LENGTH
+) => {
   let output = value?.toString() ?? ''
 
-  if (output.length > MAX_STRING_LENGTH) {
-    output = output.substring(0, MAX_STRING_LENGTH) + '...'
+  if (output.length > maxLen) {
+    output = output.substring(0, maxLen) + '...'
   }
 
   return output
@@ -59,16 +62,18 @@ export const checkboxInputTag = (checked: boolean) => {
 }
 
 export function fmtTags(tags: EditTabById['tab']['tags']) {
-  return tags
-    .map((tag) => {
-      const name = tag.tag.name
-      if (name.includes(',')) {
-        return `"${name}"`
-      } else {
-        return name
-      }
-    })
-    .join(', ')
+  return tags && tags.length
+    ? tags
+      .map((tag) => {
+        const name = tag.tag.name
+        if (name.includes(',')) {
+          return `"${name}"`
+        } else {
+          return name
+        }
+      })
+      .join(', ')
+    : ''
 }
 
 export function splitTags(value: string) {

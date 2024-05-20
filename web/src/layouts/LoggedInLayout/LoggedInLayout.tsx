@@ -16,6 +16,11 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
               Home
             </button>
           </Link>
+          <Link to={routes.newTab()}>
+            <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+              New Tab
+            </button>
+          </Link>
           <button
             className="rounded bg-gray-800 px-4 py-2 font-bold text-white hover:bg-gray-600"
             onClick={() => logOut()}
