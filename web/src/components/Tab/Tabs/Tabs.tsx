@@ -59,9 +59,9 @@ const TabsList = ({ tabs }: FindTabs) => {
           {tabs.map((tab) => (
             <tr key={tab.id}>
               <td>
-                <Link to={tab.url} title={'Show tab detail'}>
+                <a href={tab.url} title={'Visit site'} target="_blank">
                   {tab.url}
-                </Link>
+                </a>
               </td>
               <td>{truncate(tab.notes)}</td>
               {

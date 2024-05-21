@@ -54,9 +54,9 @@ const Tab = ({ tab }: Props) => {
             <tr>
               <th>URL</th>
               <td>
-                <Link to={tab.url} title="Visit URL">
+                <a href={tab.url} title={'Visit site'} target="_blank">
                   {tab.url}
-                </Link>
+                </a>
               </td>
             </tr>
             <tr>
