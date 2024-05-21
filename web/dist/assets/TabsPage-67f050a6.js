@@ -1,0 +1,1 @@
+import{j as r}from"./index-65dccdee.js";import{a as t}from"./Tabs-6f66fdc9.js";import"./index-e3e85086.js";import"./formatters-ef2ce1ab.js";import"./index-714914bb.js";const e=()=>r.jsx(t,{});export{e as default};

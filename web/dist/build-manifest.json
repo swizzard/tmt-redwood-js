@@ -1,0 +1,300 @@
+{
+  "_TabForm-75c53846.js": {
+    "file": "assets/TabForm-75c53846.js",
+    "imports": [
+      "index.html",
+      "_index-574b20c6.js",
+      "_formatters-ef2ce1ab.js"
+    ]
+  },
+  "_TabTagForm-3cfe557d.js": {
+    "file": "assets/TabTagForm-3cfe557d.js",
+    "imports": [
+      "index.html",
+      "_index-574b20c6.js"
+    ]
+  },
+  "_Tabs-6f66fdc9.js": {
+    "file": "assets/Tabs-6f66fdc9.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js"
+    ]
+  },
+  "_TagForm-3f811310.js": {
+    "file": "assets/TagForm-3f811310.js",
+    "imports": [
+      "index.html",
+      "_index-574b20c6.js"
+    ]
+  },
+  "_UserForm-3392ac95.js": {
+    "file": "assets/UserForm-3392ac95.js",
+    "imports": [
+      "index.html",
+      "_index-574b20c6.js"
+    ]
+  },
+  "_formatters-ef2ce1ab.js": {
+    "file": "assets/formatters-ef2ce1ab.js",
+    "imports": [
+      "index.html",
+      "_index-714914bb.js"
+    ]
+  },
+  "_index-574b20c6.js": {
+    "file": "assets/index-574b20c6.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_index-714914bb.js": {
+    "file": "assets/index-714914bb.js"
+  },
+  "_index-e3e85086.js": {
+    "file": "assets/index-e3e85086.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.css": {
+    "file": "assets/index-908542d6.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "css": [
+      "assets/index-908542d6.css"
+    ],
+    "dynamicImports": [
+      "pages/HomePage/HomePage.tsx",
+      "pages/NotFoundPage/NotFoundPage.tsx",
+      "pages/TaggedTabsPage/TaggedTabsPage.tsx",
+      "pages/Tab/EditTabPage/EditTabPage.tsx",
+      "pages/Tab/NewTabPage/NewTabPage.tsx",
+      "pages/Tab/TabPage/TabPage.tsx",
+      "pages/Tab/TabsPage/TabsPage.tsx",
+      "pages/TabTag/EditTabTagPage/EditTabTagPage.tsx",
+      "pages/TabTag/NewTabTagPage/NewTabTagPage.tsx",
+      "pages/TabTag/TabTagPage/TabTagPage.tsx",
+      "pages/TabTag/TabTagsPage/TabTagsPage.tsx",
+      "pages/Tag/EditTagPage/EditTagPage.tsx",
+      "pages/Tag/NewTagPage/NewTagPage.tsx",
+      "pages/Tag/TagPage/TagPage.tsx",
+      "pages/Tag/TagsPage/TagsPage.tsx",
+      "pages/User/EditUserPage/EditUserPage.tsx",
+      "pages/User/NewUserPage/NewUserPage.tsx",
+      "pages/User/UserPage/UserPage.tsx",
+      "pages/User/UsersPage/UsersPage.tsx"
+    ],
+    "file": "assets/index-65dccdee.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "pages/HomePage/HomePage.tsx": {
+    "file": "assets/HomePage-f4c85b38.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/HomePage/HomePage.tsx"
+  },
+  "pages/NotFoundPage/NotFoundPage.tsx": {
+    "file": "assets/NotFoundPage-a00d8afa.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/NotFoundPage/NotFoundPage.tsx"
+  },
+  "pages/Tab/EditTabPage/EditTabPage.tsx": {
+    "file": "assets/EditTabPage-46ac2ab0.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TabForm-75c53846.js",
+      "_index-574b20c6.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tab/EditTabPage/EditTabPage.tsx"
+  },
+  "pages/Tab/NewTabPage/NewTabPage.tsx": {
+    "file": "assets/NewTabPage-431087fc.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TabForm-75c53846.js",
+      "_index-574b20c6.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tab/NewTabPage/NewTabPage.tsx"
+  },
+  "pages/Tab/TabPage/TabPage.tsx": {
+    "file": "assets/TabPage-185fe7db.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tab/TabPage/TabPage.tsx"
+  },
+  "pages/Tab/TabsPage/TabsPage.tsx": {
+    "file": "assets/TabsPage-67f050a6.js",
+    "imports": [
+      "index.html",
+      "_Tabs-6f66fdc9.js",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tab/TabsPage/TabsPage.tsx"
+  },
+  "pages/TabTag/EditTabTagPage/EditTabTagPage.tsx": {
+    "file": "assets/EditTabTagPage-8f6b427a.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TabTagForm-3cfe557d.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/TabTag/EditTabTagPage/EditTabTagPage.tsx"
+  },
+  "pages/TabTag/NewTabTagPage/NewTabTagPage.tsx": {
+    "file": "assets/NewTabTagPage-df0f7d6f.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TabTagForm-3cfe557d.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/TabTag/NewTabTagPage/NewTabTagPage.tsx"
+  },
+  "pages/TabTag/TabTagPage/TabTagPage.tsx": {
+    "file": "assets/TabTagPage-b8984569.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/TabTag/TabTagPage/TabTagPage.tsx"
+  },
+  "pages/TabTag/TabTagsPage/TabTagsPage.tsx": {
+    "file": "assets/TabTagsPage-dd140820.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/TabTag/TabTagsPage/TabTagsPage.tsx"
+  },
+  "pages/Tag/EditTagPage/EditTagPage.tsx": {
+    "file": "assets/EditTagPage-9fb5339a.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TagForm-3f811310.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tag/EditTagPage/EditTagPage.tsx"
+  },
+  "pages/Tag/NewTagPage/NewTagPage.tsx": {
+    "file": "assets/NewTagPage-88e537cf.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_TagForm-3f811310.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tag/NewTagPage/NewTagPage.tsx"
+  },
+  "pages/Tag/TagPage/TagPage.tsx": {
+    "file": "assets/TagPage-332d5cc7.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tag/TagPage/TagPage.tsx"
+  },
+  "pages/Tag/TagsPage/TagsPage.tsx": {
+    "file": "assets/TagsPage-b0165306.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Tag/TagsPage/TagsPage.tsx"
+  },
+  "pages/TaggedTabsPage/TaggedTabsPage.tsx": {
+    "file": "assets/TaggedTabsPage-c2702408.js",
+    "imports": [
+      "index.html",
+      "_Tabs-6f66fdc9.js",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/TaggedTabsPage/TaggedTabsPage.tsx"
+  },
+  "pages/User/EditUserPage/EditUserPage.tsx": {
+    "file": "assets/EditUserPage-62d87466.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_UserForm-3392ac95.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/User/EditUserPage/EditUserPage.tsx"
+  },
+  "pages/User/NewUserPage/NewUserPage.tsx": {
+    "file": "assets/NewUserPage-b43a3d14.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_UserForm-3392ac95.js",
+      "_index-574b20c6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/User/NewUserPage/NewUserPage.tsx"
+  },
+  "pages/User/UserPage/UserPage.tsx": {
+    "file": "assets/UserPage-6490b537.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/User/UserPage/UserPage.tsx"
+  },
+  "pages/User/UsersPage/UsersPage.tsx": {
+    "file": "assets/UsersPage-9e238cb8.js",
+    "imports": [
+      "index.html",
+      "_index-e3e85086.js",
+      "_formatters-ef2ce1ab.js",
+      "_index-714914bb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/User/UsersPage/UsersPage.tsx"
+  }
+}
