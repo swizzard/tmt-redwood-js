@@ -1,7 +1,6 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Redirect, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { useAuth } from 'src/auth'
-import HomeLink from 'src/components/util/HomeLink'
 
 const HomePage = () => {
   const { currentUser } = useAuth()
@@ -9,7 +8,6 @@ const HomePage = () => {
     <>
       <Metadata title="Home" description="Home page" />
 
-      <h1>Too Many Tabs</h1>
       {currentUser ? <LoggedInHome /> : <LoggedOutHome />}
     </>
   )
@@ -18,25 +16,26 @@ const HomePage = () => {
 export default HomePage
 
 function LoggedInHome() {
-  const { currentUser, logOut } = useAuth()
-  return (
-    <>
-      <p>Welcome back</p>
-      <p>{JSON.stringify(currentUser)}</p>
-      <div className="w-1/4">
-        <HomeLink />
-        <button onClick={() => logOut()}>Log Out</button>
-      </div>
-    </>
-  )
+  return <Redirect to={routes.tabs()} />
 }
 
 function LoggedOutHome() {
   const { signUp } = useAuth()
   return (
-    <>
-      <p>You are not logged in</p>
-      <button onClick={() => signUp()}>Sign Up</button>
-    </>
+    <div className="rw-scaffold">
+      <div className="mt-5 flex flex-col">
+        <div className="ml-auto mr-auto flex flex-col text-center">
+          <h1 className="text-3xl">Too Many Tabs</h1>
+        </div>
+        <div className="rw-button-group">
+          <button
+            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={() => signUp()}
+          >
+            Log In or Register
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
