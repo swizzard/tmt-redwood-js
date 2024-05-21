@@ -59,7 +59,7 @@ const TabsList = ({ tabs }: FindTabs) => {
           {tabs.map((tab) => (
             <tr key={tab.id}>
               <td>
-                <Link to={routes.tab({ id: tab.id })} title={'Show tab detail'}>
+                <Link to={tab.url} title={'Show tab detail'}>
                   {tab.url}
                 </Link>
               </td>
