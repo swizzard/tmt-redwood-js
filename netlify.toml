@@ -1,6 +1,6 @@
 [build]
-command = ""
-publish = "web/dist"
+command = "yarn rw deploy netlify --no-data-migrate"
+publish = "./web/dist"
 functions = "api/dist/functions"
 
 [build.environment]
