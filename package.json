@@ -7,9 +7,9 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/cli-data-migrate": "7.5.0",
-    "@redwoodjs/core": "7.5.0",
-    "@redwoodjs/project-config": "7.5.0",
+    "@redwoodjs/cli-data-migrate": "7.6.1",
+    "@redwoodjs/core": "7.6.1",
+    "@redwoodjs/project-config": "7.6.1",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
