@@ -7,6 +7,7 @@ type LoggedinLayoutProps = {
 
 const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
   const { logOut } = useAuth()
+
   return (
     <div className="rw-scaffold">
       <div className="absolute inset-y-0 left-0 h-full w-1/6 bg-slate-100">
@@ -32,6 +33,13 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
           >
             Log Out
           </button>
+        </div>
+        <div className="mt-20 flex h-16 flex-col items-center justify-center gap-y-2">
+          <Link to={routes.about()}>
+            <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+              About
+            </button>
+          </Link>
         </div>
       </div>
       <div className="absolute right-0 h-full w-5/6 bg-slate-100 pr-10 pt-5">

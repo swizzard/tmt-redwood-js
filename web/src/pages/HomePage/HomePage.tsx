@@ -1,4 +1,4 @@
-import { Redirect, routes } from '@redwoodjs/router'
+import { Link, Redirect, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { useAuth } from 'src/auth'
 
@@ -34,6 +34,16 @@ function LoggedOutHome() {
           >
             Log In or Register
           </button>
+        </div>
+        <div className="rw-button-group">
+          <Link to={routes.about()}>
+            <button
+              type="button"
+              className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            >
+              What?
+            </button>
+          </Link>
         </div>
       </div>
     </div>
