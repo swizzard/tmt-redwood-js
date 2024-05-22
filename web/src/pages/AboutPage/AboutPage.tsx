@@ -7,11 +7,14 @@ export default () => {
         <p>I have too many open tabs.</p>
         <p>I need to close some of them.</p>
         <p>I will forget their contents immediately.</p>
+        <p>Hence:</p>
       </div>
       <div>
         <p>
-          Hence:{' '}
-          <Link className="text-blue-500 hover:font-bold" to={routes.tabs()}>
+          <Link
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+            to={routes.tabs()}
+          >
             TMT
           </Link>
         </p>
@@ -36,7 +39,56 @@ export default () => {
         </p>
       </div>
       <div>
-        <Link className="text-blue-500 hover:font-bold" to={routes.home()}>
+        <p>
+          Built with{' '}
+          <a
+            target="_blank"
+            href="https://redwoodjs.com"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          >
+            RedwoodJS
+          </a>{' '}
+          and{' '}
+          <a
+            target="_blank"
+            href="https://tailwindcss.com"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          >
+            TailwindCSS
+          </a>
+          . DB hosted on{' '}
+          <a
+            target="_blank"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+            href="https://railway.app/"
+          >
+            Railway
+          </a>
+          . Frontend hosted on{' '}
+          <a
+            href="https://www.netlify.com/"
+            target="_blank"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          >
+            Netlify
+          </a>
+          . Favicon is the <span className="font-mono">bookmark-tabs</span>{' '}
+          emoji via{' '}
+          <a
+            target="_blank"
+            href="https://favicon.io/emoji-favicons/bookmark-tabs"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          >
+            favicon.io
+          </a>
+          .
+        </p>
+      </div>
+      <div>
+        <Link
+          className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          to={routes.home()}
+        >
           Home
         </Link>
       </div>
