@@ -36,7 +36,7 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
         </div>
         <div className="mt-20 flex h-16 flex-col items-center justify-center gap-y-2">
           <Link to={routes.about()}>
-            <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+            <button className="rounded bg-blue-500 px-2 py-1 text-white hover:bg-blue-700">
               About
             </button>
           </Link>
@@ -44,6 +44,11 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
       </div>
       <div className="absolute right-0 h-full w-5/6 bg-slate-100 pr-10 pt-5">
         {children}
+      </div>
+      <div className="absolute bottom-0 left-0 h-16 w-full bg-slate-100">
+        <p className="ml-auto mt-5 block text-center text-sm text-gray-500">
+          © 2024 sam raker
+        </p>
       </div>
     </div>
   )

@@ -22,29 +22,22 @@ function LoggedInHome() {
 function LoggedOutHome() {
   const { signUp } = useAuth()
   return (
-    <div className="rw-scaffold">
-      <div className="mt-5 flex flex-col">
-        <div className="ml-auto mr-auto flex flex-col text-center">
-          <h1 className="text-3xl">Too Many Tabs</h1>
-        </div>
-        <div className="rw-button-group">
+    <div className="mt-5 flex flex-col items-center gap-y-5 bg-slate-100">
+      <button
+        className="w-1/6 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        onClick={() => signUp()}
+      >
+        Log In or Register
+      </button>
+      <div className="w-1/6">
+        <Link to={routes.about()}>
           <button
-            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-            onClick={() => signUp()}
+            type="button"
+            className="w-full rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
           >
-            Log In or Register
+            What?
           </button>
-        </div>
-        <div className="rw-button-group">
-          <Link to={routes.about()}>
-            <button
-              type="button"
-              className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-            >
-              What?
-            </button>
-          </Link>
-        </div>
+        </Link>
       </div>
     </div>
   )

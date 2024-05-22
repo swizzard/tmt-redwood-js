@@ -10,6 +10,7 @@
 import { PrivateSet, Set, Router, Route } from '@redwoodjs/router'
 
 import LoggedInLayout from 'src/layouts/LoggedInLayout/LoggedInLayout'
+import LoggedOutLayout from 'src/layouts/LoggedOutLayout/LoggedOutLayout'
 
 import { useAuth } from './auth'
 
@@ -43,7 +44,7 @@ const Routes = () => {
           <Route path="/tab-tags" page={TabTagTabTagsPage} name="tabTags" />
         </Set>
       </PrivateSet>
-      <Set>
+      <Set wrap={LoggedOutLayout}>
         <Route path="/" page={HomePage} name="home" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route notfound page={NotFoundPage} />
