@@ -19,12 +19,12 @@ export default () => {
           </Link>
         </p>
       </div>
-      <div>
-        <p>Sign up with your real email or a fake email it doesn't matter.</p>
-        <p>Save tabs&mdash;URLs, notes, and tags.</p>
-        <p>
-          Tags will be automatically parsed and saved and can be used for
-          categorization.
+      <div className="ml-5">
+        <p>Sign up via email, Google, or GitHub.</p>
+        <p>Save URLs, add notes and tags.</p>
+        <p>Your tags will be saved and can be used for categorization.</p>
+        <p className="mt-5">
+          <b>Warning:</b> <code>Too Many Tabs</code> is provided <i>as is</i>.
         </p>
         <p>
           This is literally all living on Literally Some DB and run by{' '}
@@ -34,11 +34,17 @@ export default () => {
             target="_blank"
           >
             Literally Some Guy
-          </a>{' '}
-          so like don't put nudes or mein kampf in it thanks.
+          </a>
+          .
         </p>
+        <p>Don't put passwords or mein kampf in it thanks.</p>
+        <p>
+          I will try very hard to keep it up and running but you can't get mad
+          at me if things go awry.
+        </p>
+        <p className="mt-5 md:mt-0"></p>
       </div>
-      <div>
+      <div className="ml-5 md:ml-0 ">
         <p>
           Built with{' '}
           <a
@@ -80,6 +86,14 @@ export default () => {
             className="text-blue-500 visited:text-blue-900 hover:font-bold"
           >
             favicon.io
+          </a>
+          . Other icons coutesy{' '}
+          <a
+            target="_blank"
+            href="https://fontawesome.com/"
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+          >
+            Font Awesome
           </a>
           .
         </p>
