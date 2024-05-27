@@ -4,12 +4,12 @@ import type {
   FindTabById,
 } from 'types/graphql'
 
-import { Link, routes, navigate } from '@redwoodjs/router'
+import { Link, routes, navigate, back } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { fmtTags } from 'src/lib/formatters'
+import { TabTagsList } from 'src/components/Tab/Tabs/Tabs'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -65,24 +65,31 @@ const Tab = ({ tab }: Props) => {
             </tr>
             <tr>
               <th>Tags</th>
-              <td>{fmtTags(tab.tags)}</td>
+              <td>
+                <TabTagsList tags={tab.tags} />
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
       <nav className="rw-button-group">
-        <Link
-          to={routes.editTab({ id: tab.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
+        <Link to={routes.editTab({ id: tab.id })}>
+          <button className="mx-3 rounded bg-blue-500 px-4 py-2 text-white">
+            Edit
+          </button>
         </Link>
         <button
           type="button"
-          className="rw-button rw-button-red"
+          className="mx-3 rounded bg-red-500 px-4 py-2 text-white"
           onClick={() => onDeleteClick(tab.id)}
         >
           Delete
+        </button>
+        <button
+          onClick={back}
+          className="mx-3 rounded bg-slate-500 p-2 text-white md:hidden"
+        >
+          Back
         </button>
       </nav>
     </>

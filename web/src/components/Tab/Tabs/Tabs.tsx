@@ -46,63 +46,12 @@ const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
 
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>URL</th>
-            <th>Notes</th>
-            <th>Tags</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tabs.map((tab) => (
-            <tr key={tab.id}>
-              <td>
-                <a href={tab.url} title={'Visit site'} target="_blank">
-                  {tab.url}
-                </a>
-              </td>
-              <td>{truncate(tab.notes)}</td>
-              {
-                <td>
-                  <TabTagsList tags={tab.tags} />
-                </td>
-              }
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.tab({ id: tab.id })}
-                    title={'Show tab detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editTab({ id: tab.id })}
-                    title={'Edit tab ' + tab.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete tab ' + tab.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(tab.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TabsTable tabs={tabs} onDeleteClick={onDeleteClick} />
+      <TabsCards tabs={tabs} onDeleteClick={onDeleteClick} />
       {fromTags && (
         <div className="rw-button-group">
           <Link to={routes.tags()} className="rw-button">
-            Back
+            Back to Tags
           </Link>
         </div>
       )}
@@ -110,7 +59,61 @@ const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
   )
 }
 
-const TabTagsList = ({
+const TabsCards = ({
+  tabs,
+  onDeleteClick,
+}: FindTabs & { onDeleteClick: Function }) => {
+  return (
+    <div className="mt-5 flex flex-col gap-x-5 gap-y-10 md:hidden">
+      {tabs.map((tab) => (
+        <div key={tab.id} className="border border-solid border-gray-500">
+          <div className="border-b border-solid border-gray-500 text-center">
+            <h2 className="text-lg font-bold">
+              <a href={tab.url} target="_blank">
+                {truncate(tab.url, 40)}
+              </a>
+            </h2>
+          </div>
+          <div className="ml-5 mt-5">
+            <b>Notes:</b> {truncate(tab.notes)}
+          </div>
+          <div className="ml-5 mt-5">
+            <b>Tags:</b>
+            <TabTagsList tags={tab.tags} />
+          </div>
+          <div>
+            <nav className="rw-button-group">
+              <Link
+                to={routes.tab({ id: tab.id })}
+                title={'Show tab detail'}
+                className="rw-button rw-button-small"
+              >
+                Show
+              </Link>
+              <Link
+                to={routes.editTab({ id: tab.id })}
+                title={'Edit tab ' + tab.id}
+                className="rw-button rw-button-small rw-button-blue"
+              >
+                Edit
+              </Link>
+              <button
+                type="button"
+                title={'Delete tab ' + tab.id}
+                className="rw-button rw-button-small rw-button-red"
+                onClick={() => onDeleteClick(tab.id)}
+              >
+                Delete
+              </button>
+            </nav>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export const TabTagsList = ({
   tags,
 }: {
   tags: Array<{ tag: { name: string; id: string } }>
@@ -135,6 +138,67 @@ const TTLI = ({ tag: { name, id } }: { tag: { name: string; id: string } }) => {
         {tagName}
       </Link>
     </li>
+  )
+}
+
+const TabsTable = ({
+  tabs,
+  onDeleteClick,
+}: FindTabs & { onDeleteClick: Function }) => {
+  return (
+    <table className="rw-table hidden md:table">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Notes</th>
+          <th>Tags</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tabs.map((tab) => (
+          <tr key={tab.id}>
+            <td>
+              <a href={tab.url} title={'Visit site'} target="_blank">
+                {tab.url}
+              </a>
+            </td>
+            <td>{truncate(tab.notes)}</td>
+            {
+              <td>
+                <TabTagsList tags={tab.tags} />
+              </td>
+            }
+            <td>
+              <nav className="rw-table-actions">
+                <Link
+                  to={routes.tab({ id: tab.id })}
+                  title={'Show tab detail'}
+                  className="rw-button rw-button-small"
+                >
+                  Show
+                </Link>
+                <Link
+                  to={routes.editTab({ id: tab.id })}
+                  title={'Edit tab ' + tab.id}
+                  className="rw-button rw-button-small rw-button-blue"
+                >
+                  Edit
+                </Link>
+                <button
+                  type="button"
+                  title={'Delete tab ' + tab.id}
+                  className="rw-button rw-button-small rw-button-red"
+                  onClick={() => onDeleteClick(tab.id)}
+                >
+                  Delete
+                </button>
+              </nav>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }
 
