@@ -57,16 +57,17 @@ const TagsList = ({ tags }: FindTags) => {
         <tbody>
           {tags.map((tag) => (
             <tr key={tag.id}>
-              <td>{truncate(tag.name)}</td>
+              <td>
+                <Link
+                  to={routes.taggedTabs({ tagId: tag.id })}
+                  title={`Show tabs tagged with ${ft(tag.name)}`}
+                  className="hover:font-bold"
+                >
+                  {truncate(tag.name)}
+                </Link>
+              </td>
               <td>
                 <nav className="rw-table-actions">
-                  <Link
-                    to={routes.taggedTabs({ tagId: tag.id })}
-                    title={`Show tabs tagged with ${ft(tag.name)}`}
-                    className="rw-button rw-button-small text-lime-500 hover:text-lime-700"
-                  >
-                    Tabs
-                  </Link>
                   <Link
                     to={routes.tag({ id: tag.id })}
                     title={'Show tag detail'}

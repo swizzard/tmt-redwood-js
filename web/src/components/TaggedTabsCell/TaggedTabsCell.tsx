@@ -46,7 +46,7 @@ export const Success = ({
   return (
     <div>
       <h1>Tabs tagged "{tag.name}"</h1>
-      <Tabs tabs={taggedTabs} />
+      <Tabs tabs={taggedTabs} fromTags={true} />
     </div>
   )
 }

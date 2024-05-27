@@ -23,7 +23,7 @@ const DELETE_TAB_MUTATION: TypedDocumentNode<
   }
 `
 
-const TabsList = ({ tabs }: FindTabs) => {
+const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
   const [deleteTab] = useMutation(DELETE_TAB_MUTATION, {
     onCompleted: () => {
       toast.success('Tab deleted')
@@ -99,6 +99,13 @@ const TabsList = ({ tabs }: FindTabs) => {
           ))}
         </tbody>
       </table>
+      {fromTags && (
+        <div className="rw-button-group">
+          <Link to={routes.tags()} className="rw-button">
+            Back
+          </Link>
+        </div>
+      )}
     </div>
   )
 }
