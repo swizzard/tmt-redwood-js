@@ -1,6 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
+import { useAuth } from 'src/auth'
 
 export default () => {
+  const { signUp, currentUser } = useAuth()
   return (
     <div className="mt-5 flex flex-col items-center">
       <div>
@@ -19,10 +21,40 @@ export default () => {
           </Link>
         </p>
       </div>
+      <div className="my-5 ml-5">
+        <p>
+          Do <b>you</b> have too many tabs?
+        </p>
+      </div>
       <div className="ml-5">
-        <p>Sign up via email, Google, or GitHub.</p>
-        <p>Save URLs, add notes and tags.</p>
-        <p>Your tags will be saved and can be used for categorization.</p>
+        <p>If so, you can:</p>
+        <p>
+          <a
+            className={`hover:font-bold ${currentUser ? 'text-blue-900' : 'text-green-500'}`}
+            onClick={() => signUp()}
+          >
+            {' '}
+            Sign up via email, Google, or GitHub.
+          </a>
+        </p>
+        <p>
+          <Link
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+            to={routes.newTab()}
+          >
+            Save URLs
+          </Link>
+          , add notes and tags.
+        </p>
+        <p>
+          <Link
+            className="text-blue-500 visited:text-blue-900 hover:font-bold"
+            to={routes.tags()}
+          >
+            Your tags
+          </Link>{' '}
+          will be saved and can be used for categorization.
+        </p>
         <p className="mt-5">
           <b>Warning:</b> <code>Too Many Tabs</code> is provided <i>as is</i>.
         </p>
@@ -37,15 +69,15 @@ export default () => {
           </a>
           .
         </p>
-        <p>Don't put passwords or mein kampf in it thanks.</p>
         <p>
           I will try very hard to keep it up and running but you can't get mad
           at me if things go awry.
         </p>
+        <p>Don't put passwords or mein kampf in it thanks.</p>
       </div>
-      <div className="ml-5 mt-5 md:ml-0">
+      <div className="ml-5 mt-5">
         <p className="bg-slate-100">
-          Built with{' '}
+          <code>TMT</code> is built with{' '}
           <a
             target="_blank"
             href="https://redwoodjs.com"
@@ -97,7 +129,7 @@ export default () => {
           .
         </p>
       </div>
-      <div className="mt-3 h-full w-full bg-slate-100 text-center">
+      <div className="h-full w-full bg-slate-100 pt-3 text-center">
         <Link
           className="text-blue-500 visited:text-blue-900 hover:font-bold"
           to={routes.home()}
