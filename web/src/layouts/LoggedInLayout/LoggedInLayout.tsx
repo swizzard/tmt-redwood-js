@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
 import { slide as Menu } from 'react-burger-menu'
 import { useAuth } from 'src/auth'
 import { useState } from 'react'
@@ -10,6 +10,9 @@ type LoggedinLayoutProps = {
 const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
   const { logOut } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const lo = () =>
+    logOut({ openUrl: (_url: string) => navigate(routes.home()) })
 
   return (
     <>
@@ -35,7 +38,7 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
           <Link className="ml-5" to={routes.tags()}>
             <i className="fa fa-tag"></i> Tags
           </Link>
-          <a className="ml-5" onClick={() => logOut()}>
+          <a className="ml-5" onClick={lo}>
             <i className="fa fa-door-open"></i> Log Out
           </a>
           <Link className="ml-5" to={routes.about()}>
@@ -66,7 +69,7 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
           </Link>
           <button
             className="rounded bg-gray-800 px-4 py-2 font-bold text-white hover:bg-gray-600"
-            onClick={() => logOut()}
+            onClick={lo}
           >
             <i className="fa fa-door-open"></i> Log Out
           </button>

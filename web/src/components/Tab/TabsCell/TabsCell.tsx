@@ -26,7 +26,11 @@ export const QUERY: TypedDocumentNode<FindTabs, FindTabsVariables> = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="h-full w-full">
+    <span className="text-3xl">Loading...</span>
+  </div>
+)
 
 export const Empty = () => {
   return (

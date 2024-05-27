@@ -66,7 +66,10 @@ const TabsCards = ({
   return (
     <div className="mt-5 flex flex-col gap-x-5 gap-y-10 md:hidden">
       {tabs.map((tab) => (
-        <div key={tab.id} className="border border-solid border-gray-500">
+        <div
+          key={`card-${tab.id}`}
+          className="border border-solid border-gray-500"
+        >
           <div className="border-b border-solid border-gray-500 text-center">
             <h2 className="text-lg font-bold">
               <a href={tab.url} target="_blank">
@@ -121,7 +124,7 @@ export const TabTagsList = ({
   return (
     <ul>
       {tags.map((tag) => (
-        <TTLI tag={tag.tag} />
+        <TTLI key={`ttli-${tag.tag.id}`} tag={tag.tag} />
       ))}
     </ul>
   )
@@ -130,7 +133,7 @@ export const TabTagsList = ({
 const TTLI = ({ tag: { name, id } }: { tag: { name: string; id: string } }) => {
   const tagName = truncate(name, 20)
   return (
-    <li key={id}>
+    <li key={`ttli-li-${id}`}>
       <Link
         to={routes.taggedTabs({ tagId: id })}
         title={`Tabs tagged "${name}"`}
@@ -157,7 +160,7 @@ const TabsTable = ({
       </thead>
       <tbody>
         {tabs.map((tab) => (
-          <tr key={tab.id}>
+          <tr key={`table-${tab.id}`}>
             <td>
               <a href={tab.url} title={'Visit site'} target="_blank">
                 {tab.url}
