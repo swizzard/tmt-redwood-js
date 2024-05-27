@@ -45,7 +45,7 @@ const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
+    <div className="rw-segment rw-table-wrapper-responsive bg-slate-100">
       <TabsTable tabs={tabs} onDeleteClick={onDeleteClick} />
       <TabsCards tabs={tabs} onDeleteClick={onDeleteClick} />
       {fromTags && (

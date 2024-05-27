@@ -2,14 +2,14 @@ import { Link, routes } from '@redwoodjs/router'
 
 export default () => {
   return (
-    <div className="mt-5 flex flex-col items-center gap-y-5">
+    <div className="mt-5 flex flex-col items-center">
       <div>
         <p>I have too many open tabs.</p>
         <p>I need to close some of them.</p>
         <p>I will forget their contents immediately.</p>
         <p>Hence:</p>
       </div>
-      <div>
+      <div className="my-5">
         <p>
           <Link
             className="text-blue-500 visited:text-blue-900 hover:font-bold"
@@ -42,10 +42,9 @@ export default () => {
           I will try very hard to keep it up and running but you can't get mad
           at me if things go awry.
         </p>
-        <p className="mt-5 md:mt-0"></p>
       </div>
-      <div className="ml-5 md:ml-0 ">
-        <p>
+      <div className="ml-5 mt-5 md:ml-0">
+        <p className="bg-slate-100">
           Built with{' '}
           <a
             target="_blank"
@@ -98,7 +97,7 @@ export default () => {
           .
         </p>
       </div>
-      <div>
+      <div className="mt-3 h-full w-full bg-slate-100 text-center">
         <Link
           className="text-blue-500 visited:text-blue-900 hover:font-bold"
           to={routes.home()}
