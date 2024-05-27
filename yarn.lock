@@ -5747,6 +5747,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-burger-menu@npm:^2.8.7":
+  version: 2.8.7
+  resolution: "@types/react-burger-menu@npm:2.8.7"
+  dependencies:
+    "@types/react": "*"
+  checksum: 5b5af637057502ff8db5026f22e42e9e8362902b7836808518960868c3e5aba3658e8bf50ac2ec6266629416a8988b33301994a3db482fc14f9ae39a7c1925fe
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.19":
   version: 18.3.0
   resolution: "@types/react-dom@npm:18.3.0"
@@ -6760,6 +6769,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"amdefine@npm:>=0.0.4":
+  version: 1.0.1
+  resolution: "amdefine@npm:1.0.1"
+  checksum: ba8aa5d4ff5248b2ed067111e72644b36b5b7ae88d9a5a2c4223dddb3bdc9102db67291e0b414f59f12c6479ac6a365886bac72c7965e627cbc732e0962dd1ab
+  languageName: node
+  linkType: hard
+
 "ansi-align@npm:^3.0.0":
   version: 3.0.1
   resolution: "ansi-align@npm:3.0.1"
@@ -7233,6 +7249,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ast-transform@npm:0.0.0":
+  version: 0.0.0
+  resolution: "ast-transform@npm:0.0.0"
+  dependencies:
+    escodegen: ~1.2.0
+    esprima: ~1.0.4
+    through: ~2.3.4
+  checksum: 1ae55e58f3f75d1cca05f13fd5b919fe00e9c59e78ed4af0f7566a312b167d268c7a222b9acefbf9755b078110bc0bcf480f19a62785fe3c29f898e3ae4dd63b
+  languageName: node
+  linkType: hard
+
 "ast-types-flow@npm:^0.0.8":
   version: 0.0.8
   resolution: "ast-types-flow@npm:0.0.8"
@@ -7246,6 +7273,13 @@ __metadata:
   dependencies:
     tslib: ^2.0.1
   checksum: abcc49e42eb921a7ebc013d5bec1154651fb6dbc3f497541d488859e681256901b2990b954d530ba0da4d0851271d484f7057d5eff5e07cb73e8b10909f711bf
+  languageName: node
+  linkType: hard
+
+"ast-types@npm:^0.7.0":
+  version: 0.7.8
+  resolution: "ast-types@npm:0.7.8"
+  checksum: 24f809780884b999fddbfdd42860d4315f7e28d6911760fc8d50181712693e3f7164bb37048d72308c332ca4a2ff157074b0d078a0386492363359c75ae82306
   languageName: node
   linkType: hard
 
@@ -7857,6 +7891,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browser-resolve@npm:^1.8.1":
+  version: 1.11.3
+  resolution: "browser-resolve@npm:1.11.3"
+  dependencies:
+    resolve: 1.1.7
+  checksum: 610e951be85f76b3090edbfcd6cf654d50361278c95d0afbb767abd9a2758b01ee1c3d3927dc6c0142ededcd4dae71b06a1a6ccf97375f1b17de224c03298a64
+  languageName: node
+  linkType: hard
+
 "browserify-aes@npm:^1.0.4, browserify-aes@npm:^1.2.0":
   version: 1.2.0
   resolution: "browserify-aes@npm:1.2.0"
@@ -7891,6 +7934,17 @@ __metadata:
     inherits: ^2.0.1
     safe-buffer: ^5.1.2
   checksum: 943eb5d4045eff80a6cde5be4e5fbb1f2d5002126b5a4789c3c1aae3cdddb1eb92b00fb92277f512288e5c6af330730b1dbabcf7ce0923e749e151fcee5a074d
+  languageName: node
+  linkType: hard
+
+"browserify-optional@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "browserify-optional@npm:1.0.1"
+  dependencies:
+    ast-transform: 0.0.0
+    ast-types: ^0.7.0
+    browser-resolve: ^1.8.1
+  checksum: 2540b966cc6c4db52a3ae2da11a26ae48e3734394af73f57f28650481f5e0288494d910600b0a5e9cc793365d4ac556fa4ced213e2777e180bee2fd3174cc34f
   languageName: node
   linkType: hard
 
@@ -8460,6 +8514,13 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: d44f4afc7a3e48dba4c2d3fada5f781a1adeeff371b875c3b578bc33815c6c29d5d06483c2abfd43a32d35b104b27b67bfa39c2e8a422fa858068bd756cfbd42
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.2.6":
+  version: 2.5.1
+  resolution: "classnames@npm:2.5.1"
+  checksum: afff4f77e62cea2d79c39962980bf316bacb0d7c49e13a21adaadb9221e1c6b9d3cdb829d8bb1b23c406f4e740507f37e1dcf506f7e3b7113d17c5bab787aa69
   languageName: node
   linkType: hard
 
@@ -10663,6 +10724,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"escodegen@npm:~1.2.0":
+  version: 1.2.0
+  resolution: "escodegen@npm:1.2.0"
+  dependencies:
+    esprima: ~1.0.4
+    estraverse: ~1.5.0
+    esutils: ~1.0.0
+    source-map: ~0.1.30
+  dependenciesMeta:
+    source-map:
+      optional: true
+  bin:
+    escodegen: ./bin/escodegen.js
+    esgenerate: ./bin/esgenerate.js
+  checksum: 8505ca66a56ac5b0f3fb336c65b80465784270ab1149bf1050b6d0ac308b9a1b31b8d18b8e8510707b8d9570f0d5cda5d6287c0a43ba308a3681829599f9b6a0
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:8.10.0":
   version: 8.10.0
   resolution: "eslint-config-prettier@npm:8.10.0"
@@ -10959,6 +11038,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esprima@npm:~1.0.4":
+  version: 1.0.4
+  resolution: "esprima@npm:1.0.4"
+  bin:
+    esparse: ./bin/esparse.js
+    esvalidate: ./bin/esvalidate.js
+  checksum: c07e43a78f4711aee4c9514d2672b66cf22a35b93eb7844bc99e511b506cac44d753d75a319c88b556d331adacad9065fcb958dad02faefd27833a7718f75bcd
+  languageName: node
+  linkType: hard
+
 "esquery@npm:^1.4.2":
   version: 1.5.0
   resolution: "esquery@npm:1.5.0"
@@ -10991,6 +11080,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"estraverse@npm:~1.5.0":
+  version: 1.5.1
+  resolution: "estraverse@npm:1.5.1"
+  checksum: b80e17a2e088a9573cef1fd7a16c5a5ef11a0570c2ef36ca21558b7b23dad361e07e2ad1f1b99dbfb264720416ceedefc817bbb723683b398161425223b4bf1e
+  languageName: node
+  linkType: hard
+
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
@@ -10998,10 +11094,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esutils@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "esutils@npm:1.0.0"
+  checksum: da208c8481a6a7e6deb3a720e7cc9eb44a62d4bfc9a15c44229d3337d1542f4f9f0a258d9eb7ef03ad158b4fa94be95f8831675e67ff656b0a227c2b562d52b4
+  languageName: node
+  linkType: hard
+
 "etag@npm:~1.8.1":
   version: 1.8.1
   resolution: "etag@npm:1.8.1"
   checksum: 12be11ef62fb9817314d790089a0a49fae4e1b50594135dcb8076312b7d7e470884b5100d249b28c18581b7fd52f8b485689ffae22a11ed9ec17377a33a08f84
+  languageName: node
+  linkType: hard
+
+"eve@npm:~0.5.1":
+  version: 0.5.4
+  resolution: "eve@npm:0.5.4"
+  checksum: e3144c489d592eac0a810b2044219300cbc92ef93e88dcd76546017c20114cb07d2fb5ba4f47edc51daf2f9adced762074de1e52e58114a878dd127b19637ead
   languageName: node
   linkType: hard
 
@@ -17641,6 +17751,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-burger-menu@npm:^3.0.9":
+  version: 3.0.9
+  resolution: "react-burger-menu@npm:3.0.9"
+  dependencies:
+    browserify-optional: ^1.0.0
+    classnames: ^2.2.6
+    eve: ~0.5.1
+    prop-types: ^15.7.2
+    snapsvg-cjs: 0.0.6
+  peerDependencies:
+    react: ">=0.14.0"
+    react-dom: ">=0.14.0"
+  checksum: dcf009371babfe6c0f14b0ef5b58bd799dbb4e316e32fb80c34b3c2650f343e2fadfab5d3a741caf88b2e460eaa49fdff3772122455930748891a59cd1800637
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -18153,6 +18279,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve@npm:1.1.7":
+  version: 1.1.7
+  resolution: "resolve@npm:1.1.7"
+  checksum: f66dcad51854fca283fa68e9c11445c2117d7963b9ced6c43171784987df3bed6fb16c4af2bf6f07c02ace94a4f4ebe158d13780b6e14d60944478c860208245
+  languageName: node
+  linkType: hard
+
 "resolve@npm:^1.1.7, resolve@npm:^1.11.1, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.2, resolve@npm:^1.22.4, resolve@npm:^1.22.8":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
@@ -18176,6 +18309,13 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: a6c33555e3482ea2ec4c6e3d3bf0d78128abf69dca99ae468e64f1e30acaa318fd267fb66c8836b04d558d3e2d6ed875fe388067e7d8e0de647d3c21af21c43a
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@1.1.7#~builtin<compat/resolve>":
+  version: 1.1.7
+  resolution: "resolve@patch:resolve@npm%3A1.1.7#~builtin<compat/resolve>::version=1.1.7&hash=3bafbf"
+  checksum: f4f1471423d600a10944785222fa7250237ed8c98aa6b1e1f4dc0bb3dbfbcafcaac69a2ed23cd1f6f485ed23e7c939894ac1978284e4163754fade8a05358823
   languageName: node
   linkType: hard
 
@@ -18968,6 +19108,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"snapsvg-cjs@npm:0.0.6":
+  version: 0.0.6
+  resolution: "snapsvg-cjs@npm:0.0.6"
+  dependencies:
+    snapsvg: 0.5.1
+  peerDependencies:
+    eve: ~0.5.1
+  checksum: 503f9a9cc65784d25e86dd59283704fd8c7f34de8bc2317e45782deea279e94e3f5b53eb470a4c476ad01133cb1582d7b28d1ff868a2b51bea2d5525afcc5229
+  languageName: node
+  linkType: hard
+
+"snapsvg@npm:0.5.1":
+  version: 0.5.1
+  resolution: "snapsvg@npm:0.5.1"
+  dependencies:
+    eve: ~0.5.1
+  checksum: fbe28a7346f20c3fdb94cb7bdf9731676a22fa23be6cebbd38566b1730fda8992852682e4c5083689a3932226c3d55bfeb7f006465405696533b028935a6ec32
+  languageName: node
+  linkType: hard
+
 "sockjs@npm:^0.3.24":
   version: 0.3.24
   resolution: "sockjs@npm:0.3.24"
@@ -19090,6 +19250,15 @@ __metadata:
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 904e767bb9c494929be013017380cbba013637da1b28e5943b566031e29df04fba57edf3f093e0914be094648b577372bd8ad247fa98cfba9c600794cd16b599
+  languageName: node
+  linkType: hard
+
+"source-map@npm:~0.1.30":
+  version: 0.1.43
+  resolution: "source-map@npm:0.1.43"
+  dependencies:
+    amdefine: ">=0.0.4"
+  checksum: 0cf092a91a0aadfad21ed7cb9ac78878b16242fcc9cd8f631e340b607f311d2f5391df574a29b9e243b35a7d1efd471f357b4b81da8e65145bcae242d46d0297
   languageName: node
   linkType: hard
 
@@ -19859,7 +20028,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through@npm:^2.3.6, through@npm:^2.3.8":
+"through@npm:^2.3.6, through@npm:^2.3.8, through@npm:~2.3.4":
   version: 2.3.8
   resolution: "through@npm:2.3.8"
   checksum: 4b09f3774099de0d4df26d95c5821a62faee32c7e96fb1f4ebd54a2d7c11c57fe88b0a0d49cf375de5fee5ae6bf4eb56dbbf29d07366864e2ee805349970d3cc
@@ -20914,12 +21083,14 @@ __metadata:
     "@redwoodjs/vite": 7.6.1
     "@redwoodjs/web": 7.6.1
     "@types/react": ^18.2.55
+    "@types/react-burger-menu": ^2.8.7
     "@types/react-dom": ^18.2.19
     autoprefixer: ^10.4.19
     humanize-string: 2.1.0
     postcss: ^8.4.38
     postcss-loader: ^8.1.1
     react: 18.2.0
+    react-burger-menu: ^3.0.9
     react-dom: 18.2.0
     tailwindcss: ^3.4.3
   languageName: unknown
