@@ -24,12 +24,12 @@ function LoggedOutHome() {
   return (
     <div className="mt-5 flex flex-col items-center gap-y-5 bg-slate-100">
       <button
-        className="w-1/6 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        className="xs:w-1/2 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 md:w-1/6"
         onClick={() => signUp()}
       >
         Log In or Register
       </button>
-      <div className="w-1/6">
+      <div className="xs:w-1/2 md:w-1/6">
         <Link to={routes.about()}>
           <button
             type="button"
