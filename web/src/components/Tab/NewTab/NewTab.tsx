@@ -19,6 +19,7 @@ const CREATE_TAB_MUTATION: TypedDocumentNode<
     createTab(input: $input) {
       id
       url
+      title
       notes
       tags {
         tag {

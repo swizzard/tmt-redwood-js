@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<EditTabById> = gql`
     tab: tab(id: $id) {
       id
       url
+      title
       notes
       tags {
         tag {
@@ -39,6 +40,7 @@ const UPDATE_TAB_MUTATION: TypedDocumentNode<
     updateTab(id: $id, input: $input) {
       id
       url
+      title
       notes
       tags {
         tag {
@@ -74,7 +76,7 @@ export const Success = ({ tab }: CellSuccessProps<EditTabById>) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Tab {tab?.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">Edit Tab</h2>
       </header>
       <div className="rw-segment-main">
         <TabForm tab={tab} onSave={onSave} error={error} loading={loading} />

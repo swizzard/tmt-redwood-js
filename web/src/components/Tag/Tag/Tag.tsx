@@ -38,7 +38,7 @@ const Tag = ({ tag }: Props) => {
   })
 
   const onDeleteClick = (id: DeleteTagMutationVariables['id']) => {
-    if (confirm('Are you sure you want to delete tag ' + id + '?')) {
+    if (confirm('Are you sure you want to delete this tag?')) {
       deleteTag({ variables: { id } })
     }
   }

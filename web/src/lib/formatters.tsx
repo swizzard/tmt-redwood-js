@@ -64,15 +64,15 @@ export const checkboxInputTag = (checked: boolean) => {
 export function fmtTags(tags: EditTabById['tab']['tags']) {
   return tags && tags.length
     ? tags
-      .map((tag) => {
-        const name = tag.tag.name
-        if (name.includes(',')) {
-          return `"${name}"`
-        } else {
-          return name
-        }
-      })
-      .join(', ')
+        .map((tag) => {
+          const name = tag.tag.name
+          if (name.includes(',')) {
+            return `"${name}"`
+          } else {
+            return name
+          }
+        })
+        .join(', ')
     : ''
 }
 
@@ -97,4 +97,12 @@ export function splitTags(value: string) {
   }
   console.log('tags', tags)
   return tags
+}
+
+export function tabTitle({ title, url }: { title?: string; url: string }) {
+  return (
+    <a href={url} target="_blank" title={`Visit ${url}`}>
+      {title ?? truncate(url, 60)}
+    </a>
+  )
 }

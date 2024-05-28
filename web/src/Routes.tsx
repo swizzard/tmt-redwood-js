@@ -31,18 +31,6 @@ const Routes = () => {
           <Route path="/tags/{tagId}/tabs" page={TaggedTabsPage} name="taggedTabs" />
           <Route path="/tags" page={TagTagsPage} name="tags" />
         </Set>
-        <Set title="Users" titleTo="users" buttonLabel="New User" buttonTo="newUser">
-          <Route path="/users/new" page={UserNewUserPage} name="newUser" />
-          <Route path="/users/{id}/edit" page={UserEditUserPage} name="editUser" />
-          <Route path="/users/{id}" page={UserUserPage} name="user" />
-          <Route path="/users" page={UserUsersPage} name="users" />
-        </Set>
-        <Set title="TabTags" titleTo="tabTags" buttonLabel="New TabTag" buttonTo="newTabTag">
-          <Route path="/tab-tags/new" page={TabTagNewTabTagPage} name="newTabTag" />
-          <Route path="/tab-tags/{id}/edit" page={TabTagEditTabTagPage} name="editTabTag" />
-          <Route path="/tab-tags/{id}" page={TabTagTabTagPage} name="tabTag" />
-          <Route path="/tab-tags" page={TabTagTabTagsPage} name="tabTags" />
-        </Set>
       </PrivateSet>
       <Set wrap={LoggedOutLayout}>
         <Route path="/" page={HomePage} name="home" />

@@ -24,6 +24,7 @@ model User {
 
 model Tab {
   id String @id @default(cuid())
+  title String?
   url String
   notes String?
   userId String @map(name: "user_id")

@@ -2,6 +2,7 @@ export const schema = gql`
   type Tab {
     id: String!
     url: String!
+    title: String
     notes: String
     userId: String!
     user: User!
@@ -16,6 +17,7 @@ export const schema = gql`
   input CreateTabInput {
     url: String!
     notes: String
+    title: String
     userId: String!
     tags: [String]!
   }
@@ -23,6 +25,7 @@ export const schema = gql`
   input UpdateTabInput {
     url: String
     notes: String
+    title: String
     userId: String
     tags: [String]!
   }

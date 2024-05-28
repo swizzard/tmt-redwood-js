@@ -19,6 +19,7 @@ export const QUERY: TypedDocumentNode<
     taggedTabs(id: $tagId) {
       id
       url
+      title
       notes
       userId
       tags {

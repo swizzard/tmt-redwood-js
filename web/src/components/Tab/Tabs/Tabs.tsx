@@ -10,7 +10,7 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Tab/TabsCell'
-import { truncate } from 'src/lib/formatters'
+import { tabTitle, truncate } from 'src/lib/formatters'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -39,7 +39,7 @@ const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
   })
 
   const onDeleteClick = (id: DeleteTabMutationVariables['id']) => {
-    if (confirm('Are you sure you want to delete tab ' + id + '?')) {
+    if (confirm('Are you sure you want to delete this tab?')) {
       deleteTab({ variables: { id } })
     }
   }
@@ -71,12 +71,13 @@ const TabsCards = ({
           className="border border-solid border-gray-500"
         >
           <div className="border-b border-solid border-gray-500 text-center">
-            <h2 className="text-lg font-bold">
-              <a href={tab.url} target="_blank">
-                {truncate(tab.url, 40)}
-              </a>
-            </h2>
+            <h2 className="text-lg font-bold">{tabTitle(tab)}</h2>
           </div>
+          {tab.title && (
+            <div className="ml-5 mt-5">
+              <b>URL:</b> {truncate(tab.url, 90)}
+            </div>
+          )}
           <div className="ml-5 mt-5">
             <b>Notes:</b> {truncate(tab.notes)}
           </div>
@@ -88,21 +89,21 @@ const TabsCards = ({
             <nav className="rw-button-group">
               <Link
                 to={routes.tab({ id: tab.id })}
-                title={'Show tab detail'}
+                title="Show tab detail"
                 className="rw-button rw-button-small"
               >
                 Show
               </Link>
               <Link
                 to={routes.editTab({ id: tab.id })}
-                title={'Edit tab ' + tab.id}
+                title="Edit tab"
                 className="rw-button rw-button-small rw-button-blue"
               >
                 Edit
               </Link>
               <button
                 type="button"
-                title={'Delete tab ' + tab.id}
+                title="Delete tab"
                 className="rw-button rw-button-small rw-button-red"
                 onClick={() => onDeleteClick(tab.id)}
               >
@@ -152,7 +153,7 @@ const TabsTable = ({
     <table className="rw-table hidden md:table">
       <thead>
         <tr>
-          <th>URL</th>
+          <th>Title/URL</th>
           <th>Notes</th>
           <th>Tags</th>
           <th>&nbsp;</th>
@@ -161,11 +162,7 @@ const TabsTable = ({
       <tbody>
         {tabs.map((tab) => (
           <tr key={`table-${tab.id}`}>
-            <td>
-              <a href={tab.url} title={'Visit site'} target="_blank">
-                {tab.url}
-              </a>
-            </td>
+            <td>{tabTitle(tab)}</td>
             <td>{truncate(tab.notes)}</td>
             {
               <td>

@@ -60,6 +60,23 @@ const TabForm = (props: TabFormProps) => {
         <FieldError name="url" className="rw-field-error" />
 
         <Label
+          name="title"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Title
+        </Label>
+
+        <TextField
+          name="title"
+          defaultValue={props.tab?.title}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="title" className="rw-field-error" />
+
+        <Label
           name="notes"
           className="rw-label"
           errorClassName="rw-label rw-label-error"

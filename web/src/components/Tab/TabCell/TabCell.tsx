@@ -12,6 +12,7 @@ export const QUERY: TypedDocumentNode<FindTabById, FindTabByIdVariables> = gql`
   query FindTabById($id: String!) {
     tab: tab(id: $id) {
       id
+      title
       url
       notes
       userId

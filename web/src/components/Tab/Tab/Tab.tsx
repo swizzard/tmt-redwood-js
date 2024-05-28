@@ -10,6 +10,7 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { TabTagsList } from 'src/components/Tab/Tabs/Tabs'
+import { tabTitle } from 'src/lib/formatters'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -38,7 +39,7 @@ const Tab = ({ tab }: Props) => {
   })
 
   const onDeleteClick = (id: DeleteTabMutationVariables['id']) => {
-    if (confirm('Are you sure you want to delete tab ' + id + '?')) {
+    if (confirm('Are you sure you want to delete this tab?')) {
       deleteTab({ variables: { id } })
     }
   }
@@ -53,11 +54,7 @@ const Tab = ({ tab }: Props) => {
           <tbody>
             <tr>
               <th>URL</th>
-              <td>
-                <a href={tab.url} title={'Visit site'} target="_blank">
-                  {tab.url}
-                </a>
-              </td>
+              <td>{tabTitle(tab)}</td>
             </tr>
             <tr>
               <th>Notes</th>
