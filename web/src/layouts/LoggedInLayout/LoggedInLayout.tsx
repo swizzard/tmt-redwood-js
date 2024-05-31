@@ -29,19 +29,35 @@ const LoggedInLayout = ({ children }: LoggedinLayoutProps) => {
           outerContainerId="burgerWrapper"
           onStateChange={(state) => setMenuOpen(state.isOpen)}
         >
-          <Link className="ml-5" to={routes.tabs()}>
+          <Link
+            className="ml-5"
+            to={routes.tabs()}
+            onClick={() => setMenuOpen(false)}
+          >
             <i className="fa fa-house"></i> Home
           </Link>
-          <Link className="ml-5" to={routes.newTab()}>
+          <Link
+            className="ml-5"
+            to={routes.newTab()}
+            onClick={() => setMenuOpen(false)}
+          >
             <i className="fa fa-plus"></i> New Tab
           </Link>
-          <Link className="ml-5" to={routes.tags()}>
+          <Link
+            className="ml-5"
+            to={routes.tags()}
+            onClick={() => setMenuOpen(false)}
+          >
             <i className="fa fa-tag"></i> Tags
           </Link>
           <a className="ml-5" onClick={lo}>
             <i className="fa fa-door-open"></i> Log Out
           </a>
-          <Link className="ml-5" to={routes.about()}>
+          <Link
+            className="ml-5"
+            to={routes.about()}
+            onClick={() => setMenuOpen(false)}
+          >
             <i className="fa fa-magnifying-glass"></i> About
           </Link>
           <a onClick={() => setMenuOpen(false)} className="ml-5">
