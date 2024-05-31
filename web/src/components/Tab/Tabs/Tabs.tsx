@@ -75,7 +75,10 @@ const TabsCards = ({
           </div>
           {tab.title && (
             <div className="ml-5 mt-5">
-              <b>URL:</b> {truncate(tab.url, 90)}
+              <b>URL:</b>{' '}
+              <a href={tab.url} target="_blank" title={`Visit ${tab.url}`}>
+                {truncate(tab.url, 90)}
+              </a>
             </div>
           )}
           <div className="ml-5 mt-5">
