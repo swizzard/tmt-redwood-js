@@ -8,7 +8,6 @@ type TaggedTabsPageProps = {
 const TaggedTabsPage = ({ tagId }: TaggedTabsPageProps) => {
   return (
     <>
-      <Metadata title="Tagged Tabs" description="Tagged Tabs" />
       <TaggedTabsCell tagId={tagId} />
     </>
   )

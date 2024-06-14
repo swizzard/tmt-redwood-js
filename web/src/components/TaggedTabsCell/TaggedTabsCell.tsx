@@ -1,9 +1,10 @@
 import type { TaggedTabsQuery, TaggedTabsQueryVariables } from 'types/graphql'
 
-import type {
-  CellSuccessProps,
-  CellFailureProps,
-  TypedDocumentNode,
+import {
+  type CellSuccessProps,
+  type CellFailureProps,
+  type TypedDocumentNode,
+  Metadata,
 } from '@redwoodjs/web'
 
 import Tabs from 'src/components/Tab/Tabs'
@@ -44,10 +45,14 @@ export const Success = ({
   tag,
   taggedTabs,
 }: CellSuccessProps<TaggedTabsQuery>) => {
+  const title = tag ? `Tabs tagged "${tag.name}"` : 'Tagged Tabs'
   return (
-    <div>
-      <h1>Tabs tagged "{tag.name}"</h1>
-      <Tabs tabs={taggedTabs} fromTags={true} />
-    </div>
+    <>
+      <Metadata title={title} description={title} />
+      <div>
+        <h1>{title}</h1>
+        <Tabs tabs={taggedTabs} fromTags={true} />
+      </div>
+    </>
   )
 }

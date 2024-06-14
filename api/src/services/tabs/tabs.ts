@@ -10,6 +10,7 @@ import { db } from 'src/lib/db'
 export const tabs: QueryResolvers['tabs'] = () => {
   return db.tab.findMany({
     where: { userId: context.currentUser?.id },
+    orderBy: [{ title: { sort: 'asc', nulls: 'first' } }, { url: 'asc' }],
   })
 }
 
