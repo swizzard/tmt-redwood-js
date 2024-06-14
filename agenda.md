@@ -12,7 +12,7 @@
     - [x] separate read-only "detail view"?
   - [x] delete
   - [x] list user tabs
-- [ ] tags (`yarn rw g scaffold tags`)
+- [x] tags (`yarn rw g scaffold tags`)
   - [x] create
   - [x] edit
   - [x] delete
@@ -20,11 +20,11 @@
   - [x] autocomplete suggestions
   - [x] tagged tabs
     - [x] gql endpoint
-- [ ] users
-  - [ ] whatever confirmation ui required by auth
-    - [ ] sign up
-    - [ ] log in
-    - [ ] log out
+- [x] users
+  - [x] whatever confirmation ui required by auth
+    - [x] sign up
+    - [x] log in
+    - [x] log out
 
 # data model
 
