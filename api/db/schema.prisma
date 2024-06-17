@@ -27,9 +27,15 @@ model Tab {
   title String?
   url String
   notes String?
+  createdAt DateTime? @map(name: "created_at") @default(now())
+  updatedAt DateTime? @map(name: "updated_at")
   userId String @map(name: "user_id")
   user User @relation(fields: [userId], references: [id])
   tags TabTag[]
+
+  @@index([title])
+  @@index([updatedAt])
+  @@index([createdAt])
 }
 
 model Tag {
