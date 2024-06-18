@@ -11,6 +11,7 @@ import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Tab/TabsCell'
 import { tabTitle, truncate } from 'src/lib/formatters'
+import { useState } from 'react'
 
 const DELETE_TAB_MUTATION: TypedDocumentNode<
   DeleteTabMutation,
@@ -56,95 +57,6 @@ const TabsList = ({ tabs, fromTags }: FindTabs & { fromTags?: boolean }) => {
         </div>
       )}
     </div>
-  )
-}
-
-const TabsCards = ({
-  tabs,
-  onDeleteClick,
-}: FindTabs & { onDeleteClick: Function }) => {
-  return (
-    <div className="mt-5 flex flex-col gap-x-5 gap-y-10 md:hidden">
-      {tabs.map((tab) => (
-        <div
-          key={`card-${tab.id}`}
-          className="border border-solid border-gray-500"
-        >
-          <div className="border-b border-solid border-gray-500 text-center">
-            <h2 className="text-lg font-bold">{tabTitle(tab)}</h2>
-          </div>
-          {tab.title && (
-            <div className="ml-5 mt-5">
-              <b>URL:</b>{' '}
-              <a href={tab.url} target="_blank" title={`Visit ${tab.url}`}>
-                {truncate(tab.url, 90)}
-              </a>
-            </div>
-          )}
-          <div className="ml-5 mt-5">
-            <b>Notes:</b> {truncate(tab.notes)}
-          </div>
-          <div className="ml-5 mt-5">
-            <b>Tags:</b>
-            <TabTagsList tags={tab.tags} />
-          </div>
-          <div>
-            <nav className="rw-button-group">
-              <Link
-                to={routes.tab({ id: tab.id })}
-                title="Show tab detail"
-                className="rw-button rw-button-small"
-              >
-                Show
-              </Link>
-              <Link
-                to={routes.editTab({ id: tab.id })}
-                title="Edit tab"
-                className="rw-button rw-button-small rw-button-blue"
-              >
-                Edit
-              </Link>
-              <button
-                type="button"
-                title="Delete tab"
-                className="rw-button rw-button-small rw-button-red"
-                onClick={() => onDeleteClick(tab.id)}
-              >
-                Delete
-              </button>
-            </nav>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-export const TabTagsList = ({
-  tags,
-}: {
-  tags: Array<{ tag: { name: string; id: string } }>
-}) => {
-  return (
-    <ul>
-      {tags.map((tag) => (
-        <TTLI key={`ttli-${tag.tag.id}`} tag={tag.tag} />
-      ))}
-    </ul>
-  )
-}
-
-const TTLI = ({ tag: { name, id } }: { tag: { name: string; id: string } }) => {
-  const tagName = truncate(name, 20)
-  return (
-    <li key={`ttli-li-${id}`}>
-      <Link
-        to={routes.taggedTabs({ tagId: id })}
-        title={`Tabs tagged "${name}"`}
-      >
-        {tagName}
-      </Link>
-    </li>
   )
 }
 
@@ -202,6 +114,126 @@ const TabsTable = ({
         ))}
       </tbody>
     </table>
+  )
+}
+
+const TabsCards = ({
+  tabs,
+  onDeleteClick,
+}: FindTabs & { onDeleteClick: Function }) => {
+  return (
+    <div className="mt-5 flex flex-col gap-x-5 gap-y-10 md:hidden">
+      {tabs.map((tab) => (
+        <TabCard
+          key={`card-${tab.id}`}
+          tab={tab}
+          onDeleteClick={onDeleteClick}
+        />
+      ))}
+    </div>
+  )
+}
+
+export const TabTagsList = ({
+  tags,
+}: {
+  tags: Array<{ tag: { name: string; id: string } }>
+}) => {
+  return (
+    <ul>
+      {tags.map((tag) => (
+        <TTLI key={`ttli-${tag.tag.id}`} tag={tag.tag} />
+      ))}
+    </ul>
+  )
+}
+
+const TTLI = ({ tag: { name, id } }: { tag: { name: string; id: string } }) => {
+  const tagName = truncate(name, 20)
+  return (
+    <li key={`ttli-li-${id}`}>
+      <Link
+        to={routes.taggedTabs({ tagId: id })}
+        title={`Tabs tagged "${name}"`}
+      >
+        {tagName}
+      </Link>
+    </li>
+  )
+}
+
+const TabCard = ({
+  tab,
+  onDeleteClick,
+}: {
+  tab: FindTabs['tabs'][number]
+  onDeleteClick: Function
+}) => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <div className="border border-solid border-gray-500">
+      <div className="grid grid-cols-12 border-b border-solid border-gray-500 text-center">
+        <div
+          className="col-span-1 mb-auto ml-5 mt-auto flex"
+          onClick={() => {
+            console.log('clicked')
+            setIsOpen(!isOpen)
+          }}
+        >
+          <i className={`fa fa-thin ${isOpen ? 'fa-minus' : 'fa-plus'}`} />
+        </div>
+        <div className="col-span-11">
+          <span className="ml-5 text-lg font-bold">{tabTitle(tab)}</span>
+        </div>
+      </div>
+      <div>
+        {!isOpen ? null : tab.title ? (
+          <div className="ml-5 mt-5">
+            <b>URL:</b>{' '}
+            <a href={tab.url} target="_blank" title={`Visit ${tab.url}`}>
+              {truncate(tab.url, 90)}
+            </a>
+          </div>
+        ) : null}
+        {isOpen && (
+          <>
+            <div className="ml-5 mt-5">
+              <b>Notes:</b> {truncate(tab.notes)}
+            </div>
+            <div className="ml-5 mt-5">
+              <b>Tags:</b>
+              <TabTagsList tags={tab.tags} />
+            </div>
+            <div>
+              <nav className="rw-button-group">
+                <Link
+                  to={routes.tab({ id: tab.id })}
+                  title="Show tab detail"
+                  className="rw-button rw-button-small"
+                >
+                  Show
+                </Link>
+                <Link
+                  to={routes.editTab({ id: tab.id })}
+                  title="Edit tab"
+                  className="rw-button rw-button-small rw-button-blue"
+                >
+                  Edit
+                </Link>
+                <button
+                  type="button"
+                  title="Delete tab"
+                  className="rw-button rw-button-small rw-button-red"
+                  onClick={() => onDeleteClick(tab.id)}
+                >
+                  Delete
+                </button>
+              </nav>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   )
 }
 

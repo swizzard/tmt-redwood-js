@@ -102,7 +102,7 @@ export function splitTags(value: string) {
 export function tabTitle({ title, url }: { title?: string; url: string }) {
   return (
     <a href={url} target="_blank" title={`Visit ${url}`}>
-      {title || truncate(url, 60)}
+      {title || truncate(url, 25)}
     </a>
   )
 }

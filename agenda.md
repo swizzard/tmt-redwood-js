@@ -1,5 +1,14 @@
 # agenda
 
+- [x] mobile view
+  - [x] make tabs list items smaller
+- [x] ordering
+
+  - [x] add `created_at`
+  - [x] set pre-existing tabs' `created_at` to some date
+  - [x] make `created_at` default to `now()`
+  - [x] sort by `created_at` `DESC`
+
 - [x] db
   - [x] docker-compose
   - [x] prisma schema
