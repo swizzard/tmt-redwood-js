@@ -1,7 +1,9 @@
 [build]
-command = "yarn rw deploy netlify --no-data-migrate"
-publish = "./web/dist"
-functions = "api/dist/functions"
+command = ""
+publish = "./maintenance/dist"
+# command = "yarn rw deploy netlify --no-data-migrate"
+# publish = "./web/dist"
+# functions = "api/dist/functions"
 
 [build.environment]
 NODE_VERSION = "20"
